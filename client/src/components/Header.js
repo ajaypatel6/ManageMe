@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import logo from "./../images/rsz_logo.png";
-import { FaBeer, FaBars } from "react-icons/fa";
+import { FaBars } from "react-icons/fa";
 
 import { links } from "./../data/data";
 
@@ -32,27 +32,23 @@ const Header = () => {
             >
               <FaBars />
             </button>
-
-            <div className="links-container" ref={linksContainerRef}>
-              <ul className="links" ref={linksRef}>
-                {links.map((link) => {
-                  const { id, url, text } = link;
-                  return (
-                    <li key={id}>
-                      <a href={url}>{text}</a>
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-            {/*  */}
           </div>
+
+          <div className="links-container" ref={linksContainerRef}>
+            <ul className="links" ref={linksRef}>
+              {links.map((link) => {
+                const { id, url, text } = link;
+                return (
+                  <li key={id}>
+                    <a href={url}>{text}</a>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+          <h3>Daily Task tracker</h3>
         </div>
       </nav>
-
-      <h3>
-        Lets go forr a <FaBeer />?
-      </h3>
     </>
   );
 };

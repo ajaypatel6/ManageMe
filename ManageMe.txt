@@ -13,6 +13,16 @@ Dashboard
 - main stuff
 Columns? todo/done/future?
 
+stuff on dashboard 
+- time till sunset 
+- current weather (location based)
+
+future schedule
+
+monthyl goals
+weekly goals.. etc
+
+
 - footer
 
 Stats
