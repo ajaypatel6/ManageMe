@@ -1,6 +1,6 @@
-#Tech
+# Technologies
 
-Frontend: React
+Frontend: React /n
 Backend: TBD
 
 # ManageMe
