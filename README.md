@@ -1,3 +1,8 @@
+#Tech
+
+Frontend: React
+Backend: TBD
+
 # ManageMe
 
 Website for Daily tasks and tacking with stats, using and combining app ideas to cater to myself
