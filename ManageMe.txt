@@ -1,0 +1,32 @@
+Scedule app, manageme.
+- Meditation 
+
+Each meditation has a time(length), day, id/count, 
+--------------------
+- Task
+
+Each task has a Title/Desc, Time(length), Timestarted,TimeCompleted, Category, 
+
+-------------------
+Dashboard
+- header 
+- main stuff
+Columns? todo/done/future?
+
+- footer
+
+Stats
+- graph
+sort for category, length
+- total time
+- averages
+- sort by day, week,month,year
+
+Profile
+- login/logout
+- user data
+- SQL
+
+Settings
+- Color?
+- Custom? later.. should be barely anything here 
