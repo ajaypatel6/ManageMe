@@ -4,8 +4,6 @@ Variables
 ===============
 */
 :root {
-  --radius: 0.25rem;
-
   --max-width: 1170px;
   --fixed-width: 620px;
 }
@@ -37,12 +35,16 @@ ul {
 a {
   text-decoration: none;
 }
-h1,
+h1 {
+  padding: 0.25rem;
+  text-align: center;
+  color: rgb(17, 0, 255);
+}
 h2,
 /* FULL Screen ish */
 h3 {
   padding: 0.25rem;
-  padding-left: 42%;
+  text-align: center;
   color: rgb(11, 0, 161);
 }
 h4 {
@@ -54,7 +56,7 @@ h4 {
 
 /*
 =============== 
-Navbar
+HEADER
 ===============
 */
 nav {
@@ -132,10 +134,79 @@ nav {
   }
   h3 {
     padding: 1rem;
+
     color: rgb(11, 0, 161);
   }
   .links a:hover {
     padding: 0.25rem;
     background: transparent;
   }
+}
+
+/* Login form */
+.loginButton {
+  background-color: #0075fa;
+  width: 100%;
+  color: rgb(0, 247, 255);
+  padding: 15px;
+  margin: 10px 0px;
+  border: none;
+  cursor: pointer;
+}
+form {
+  border: 3px solid #f1f1f1;
+}
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  margin: 8px 0;
+  padding: 12px 20px;
+  display: inline-block;
+  border: 2px solid #60dbfb;
+  box-sizing: border-box;
+}
+button:hover {
+  opacity: 0.7;
+}
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  margin: 10px 5px;
+}
+
+.container {
+  padding: 25px;
+  background-color: lightblue;
+}
+
+/* Login button/sign */
+
+.loginProfileButton {
+  margin: 0 auto;
+  display: block;
+  font-size: 1rem;
+  text-transform: capitalize;
+  padding: 1rem 2rem;
+  border-radius: 0.25rem;
+
+  background: #60dbfb;
+  color: black;
+}
+.signupProfileButton {
+  margin: 0 auto;
+  display: block;
+  font-size: 1rem;
+  text-transform: capitalize;
+  padding: 1rem 2rem;
+  border-radius: 0.25rem;
+
+  background: #60dbfb;
+  color: black;
+}
+
+.CoolInfo {
+  padding: 10rem;
+  text-align: center;
+  font-size: 1.5rem;
+  color: rgb(1, 182, 195);
 }

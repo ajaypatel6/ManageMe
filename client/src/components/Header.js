@@ -46,7 +46,6 @@ const Header = () => {
               })}
             </ul>
           </div>
-          {/*  */}
           <h3>Track Yourself</h3>
         </div>
       </nav>
