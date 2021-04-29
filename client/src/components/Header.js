@@ -46,7 +46,8 @@ const Header = () => {
               })}
             </ul>
           </div>
-          <h3>Daily Task tracker</h3>
+          {/*  */}
+          <h3>Track Yourself</h3>
         </div>
       </nav>
     </>
