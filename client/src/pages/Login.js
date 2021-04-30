@@ -7,12 +7,8 @@ const Login = () => {
       <h1>Login</h1>
       <form action="submit">
         <div>
-          <label>Username</label>
-          <input
-            type="text"
-            placeholder="Enter your username"
-            name="username"
-          />
+          <label>Email</label>
+          <input type="text" placeholder="Enter your Email" name="username" />
           <label>Password</label>
           <input
             type="text"
@@ -21,7 +17,6 @@ const Login = () => {
           />
           <button className="loginButton">Login</button>
         </div>
-        Google stuff
       </form>
       <Link to="/profile" className="">
         <button>Back home</button>

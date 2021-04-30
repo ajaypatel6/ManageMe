@@ -1,7 +1,24 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 // combine with profile?
 const Settings = () => {
+  //If not logged in, say to log in
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [loading, setLoading] = useState(true);
+
+  // CHECK in logged in
+
+  if (loading) {
+    if (loggedIn) {
+      setLoading(false);
+    }
+    return (
+      <div>
+        <h1>Login to change settings...</h1>
+      </div>
+    );
+  }
+  //If logged in
   return (
     <>
       <h1>Settings page</h1>

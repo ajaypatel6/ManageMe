@@ -7,21 +7,18 @@ const Signup = () => {
       <h1>Create an Account</h1>
       <form action="signup">
         <div>
-          <label>Username</label>
-          <input
-            type="text"
-            placeholder="Enter your username"
-            name="username"
-          />
+          <label>First Name</label>
+          <input type="text" placeholder="Name" name="Name" />
+          <label>Email</label>
+          <input type="text" placeholder="Enter your Email" name="Email" />
+          <label>Country</label>
+          <input type="text" placeholder="Country" name="Country" />
+          <label>City</label>
+          <input type="text" placeholder="City" name="City" />
           <label>Password</label>
-          <input
-            type="text"
-            placeholder="Enter your password"
-            name="password"
-          />
+          <input type="text" placeholder="Enter a password" name="password" />
           <button className="loginButton">Sign-up</button>
         </div>
-        Google stuff
       </form>
       <Link to="/profile" className="">
         <button>Back home</button>
