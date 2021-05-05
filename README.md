@@ -2,9 +2,9 @@
 
 Frontend: React
 
-Backend: TBD (Node or PHP)
+Backend: PHP
 
-Database : TBD (MySQL/Postgreqsl)
+Database : MySQL
 # ManageMe
 
 Website for Daily tasks and tacking with stats, using and combining app ideas to cater to myself
