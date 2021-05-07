@@ -46,7 +46,7 @@ const Header = () => {
               })}
             </ul>
           </div>
-          <h3>Track Yourself</h3>
+          <h3>Track Yourself, "NAME"</h3>
         </div>
       </nav>
     </>

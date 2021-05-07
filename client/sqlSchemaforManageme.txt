@@ -1,0 +1,24 @@
+Dtabase schema/ planin?
+
+Users
+-------
+- email
+- pw? (how to store)
+- name
+- closest major city
+- identifier
+
+Meditation
+-----------
+- length
+- date
+- userId
+- ?
+
+Task
+-------
+- length
+- category
+- description
+- userId
+

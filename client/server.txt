@@ -1,0 +1,13 @@
+
+WHAT is JWT
+- normally with sessions
+-  
+https://www.techiediaries.com/php-react-rest-api-crud-tutorial/
+
+php?
+
+axios?
+CORS
+.htaccess
+
+https://www.youtube.com/watch?v=VnvzxGWiK54&ab_channel=CodingNepal

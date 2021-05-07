@@ -12,6 +12,7 @@ const Profile = () => {
   }, []);
 
   //IF logged in return logged in Profile page
+  // user ? this : that
   if (loading) {
     if (loggedIn) {
       setLoading(false);

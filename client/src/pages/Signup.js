@@ -1,11 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
+// import SignupForm from "../components/SignupForm";
+// import { Actions } from "../Actions";
 
 const Signup = () => {
   return (
     <>
       <h1>Create an Account</h1>
-      <form action="signup">
+      {/* create form component */}
+      {/* <form action="signup">
         <div>
           <label>First Name</label>
           <input type="text" placeholder="Name" name="Name" />
@@ -17,9 +20,10 @@ const Signup = () => {
           <input type="text" placeholder="City" name="City" />
           <label>Password</label>
           <input type="text" placeholder="Enter a password" name="password" />
-          <button className="loginButton">Sign-up</button>
+          // <button className="loginButton">Sign-up</button>
+          <input type="submit" value="Insert" />
         </div>
-      </form>
+      </form> */}
       <Link to="/profile" className="">
         <button>Back home</button>
       </Link>

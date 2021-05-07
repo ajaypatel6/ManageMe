@@ -17,12 +17,19 @@ import Tasks from "./components/Tasks";
 import MeditatePrompt from "./components/MeditatePrompt";
 import CoolInfo from "./components/CoolInfo";
 
+// context
+// import { Provider } from "./Context";
+// import { Actions } from "./Actions";
+
 function Dashboard() {
+  // const data = Actions();
+
   // Meditation preface if not meditate
 
   // ELSE (if canclled/ meditation done)
   return (
     <>
+      {/* <Provider value={data}> */}
       <Router>
         <Header></Header>
 
@@ -55,6 +62,7 @@ function Dashboard() {
           </Route>
         </Switch>
       </Router>
+      {/* </Provider> */}
     </>
   );
 }
