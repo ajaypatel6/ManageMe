@@ -11,3 +11,8 @@ CORS
 .htaccess
 
 https://www.youtube.com/watch?v=VnvzxGWiK54&ab_channel=CodingNepal
+
+C - POST 
+R - GET 
+U - PUT 
+D - DELETE
