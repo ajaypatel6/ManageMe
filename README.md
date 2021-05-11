@@ -2,7 +2,7 @@
 
 Frontend: React
 
-Backend: PHP
+Backend: Node(express?)
 
 Database : MySQL
 # ManageMe
