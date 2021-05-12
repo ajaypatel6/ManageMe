@@ -32,19 +32,18 @@ app.post("/register", (req, res) => {
 });
 
 app.post("/login", (req, res) => {
-  const name = req.body.name; // only possible from express.json
   const password = req.body.password;
-  const city = req.body.city;
   const email = req.body.email;
   //sql
   db.query(
     "SELECT * FROM users WHERE email = ? and password ?",
-    [name, email, password, city],
+    [email, password],
     (err, result) => {
       if (err) {
-        console.log(err);
+        console.log({ err: err });
       }
-      if (result) {
+
+      if (result.length > 0) {
         res.send(result);
       } else {
         res.send({ message: "WRong user/pass" });
