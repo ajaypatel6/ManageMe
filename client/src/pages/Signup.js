@@ -73,7 +73,6 @@ const Signup = () => {
             type="submit"
             value="Signup"
             className="loginButton"
-            // onClick={(e) => this.handleFormSubmit(e)}
             onClick={register}
           />
         </div>
