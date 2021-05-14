@@ -1,56 +1,77 @@
-const express = require("express");
-const mysql = require("mysql");
+const express = require("express"); // to start server
+const mysql = require("mysql"); // for sql
 var request = require("request"); // for request weather
+
 const app = express();
+const dotenv = require("dotenv"); // env for passwords
+dotenv.config({ path: "./.env" });
+const path = require("path");
+
 const cors = require("cors"); // NEED
 app.use(cors()); // allow cross platform
 app.use(express.json()); //parsing all
 
 const weatherKey = "18eda1685298ff0be778b9f349d22244";
 
+// connect to sql
 const db = mysql.createConnection({
-  user: "ajay",
-  host: "localhost",
-  password: "12345678",
-  database: "manage_me",
+  user: process.env.DATABASE_USER,
+  host: process.env.DATABASE_HOST,
+  password: process.env.DATABASE_PASSWORD,
+  database: process.env.DATABASE,
 });
 
-app.post("/register", (req, res) => {
-  //grab vals
-  const name = req.body.name; // only possible from express.json
-  const password = req.body.password;
-  const city = req.body.city;
-  const email = req.body.email;
-  //sql
-  db.query(
-    "INSERT INTO users (name,email,password,city) VALUES (?,?,?,?)",
-    [name, email, password, city],
-    (err, result) => {
-      console.log(err);
-    }
-  );
+//not doing error check on db.
+db.connect((error) => {
+  if (error) {
+    console.log(error);
+  } else {
+    console.log("MYSQL connected");
+  }
 });
 
-app.post("/login", (req, res) => {
-  const password = req.body.password;
-  const email = req.body.email;
-  //sql
-  db.query(
-    "SELECT * FROM users WHERE email = ? and password ?",
-    [email, password],
-    (err, result) => {
-      if (err) {
-        console.log({ err: err });
-      }
-
-      if (result.length > 0) {
-        res.send(result);
-      } else {
-        res.send({ message: "WRong user/pass" });
-      }
-    }
-  );
+// NEW
+app.get("/", (req, res) => {
+  res.send("<h1>Home</h1>");
 });
+//
+
+// app.post("/register", (req, res) => {
+//   //grab vals
+//   const name = req.body.name; // only possible from express.json
+//   const password = req.body.password;
+//   const city = req.body.city;
+//   const email = req.body.email;
+//   //sql
+//   db.query(
+//     "INSERT INTO users (name,email,password,city) VALUES (?,?,?,?)",
+//     [name, email, password, city],
+//     (err, result) => {
+//       console.log(err);
+//     }
+//   );
+// });
+
+// app.post("/login", (req, res) => {
+//   const password = req.body.password;
+//   const email = req.body.email;
+//   //sql
+//   db.query(
+//     "SELECT * FROM users WHERE email = ? and password ?",
+//     [email, password],
+//     (err, result) => {
+//       if (err) {
+//         console.log({ err: err });
+//       }
+
+//       if (result.length > 0) {
+//         res.send(result);
+//       } else {
+//         res.send({ message: "WRong user/pass" });
+//       }
+//     }
+//   );
+// });
 
 app.get("/getWeather", (req, res) => {
   const request = require("request");

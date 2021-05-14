@@ -45,9 +45,10 @@ function Dashboard() {
           <Route path="/Stats">
             <Stats />
           </Route>
-          <Route path="/Profile">
+          {/*  */}
+          {/* <Route path="/Profile">
             <Profile />
-          </Route>
+          </Route> */}
           <Route path="/Login">
             <Login />
           </Route>

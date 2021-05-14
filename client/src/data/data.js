@@ -11,11 +11,16 @@ export const links = [
   },
   {
     id: 3,
-    url: "/profile",
-    text: "profile",
+    url: "/Login",
+    text: "Login",
   },
   {
     id: 4,
+    url: "/Signup",
+    text: "Register",
+  },
+  {
+    id: 5,
     url: "/settings",
     text: "settings",
   },
