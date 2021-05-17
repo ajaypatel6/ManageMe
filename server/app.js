@@ -8,6 +8,7 @@ dotenv.config({ path: "./.env" });
 const path = require("path");
 
 const cors = require("cors"); // NEED
+const e = require("express");
 app.use(cors()); // allow cross platform
 app.use(express.json()); //parsing all // FOR vals in form is JSON
 
@@ -31,6 +32,8 @@ db.connect((error) => {
 });
 
 // send data into DB
+// conisered a CONTROLLER .. you could put this isn a different file
+
 app.post("/register", (req, res) => {
   const name = req.body.name; // only possible from express.json
 
@@ -41,6 +44,29 @@ app.post("/register", (req, res) => {
   const confirmPassword = req.body.passwordConfirm;
 
   // const { name, email, city, password, confirmPassword } = req.body; THIS IS SHORT VERSION, destructured
+
+  db.query(
+    "INSERT INTO users (name,email,password,city) VALUES (?,?,?,?)",
+    [name, email, password, city],
+    (err, result) => {
+      if (err) {
+        console.log(err);
+      }
+      if (result.length > 0) {
+        return res.render("register", {
+          message: "The email is in use already",
+        });
+      } else if (password !== passwordConfirm) {
+        return res.render("register", {
+          message: "Passwords not matching",
+        });
+      }
+    }
+  );
+
+  //1503
+
+  res.send("registration submitted");
 });
 
 // app.post("/register", (req, res) => {
