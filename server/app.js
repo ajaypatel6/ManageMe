@@ -9,7 +9,7 @@ const path = require("path");
 
 const cors = require("cors"); // NEED
 app.use(cors()); // allow cross platform
-app.use(express.json()); //parsing all
+app.use(express.json()); //parsing all // FOR vals in form is JSON
 
 const weatherKey = "18eda1685298ff0be778b9f349d22244";
 
@@ -30,11 +30,18 @@ db.connect((error) => {
   }
 });
 
-// NEW
-app.get("/", (req, res) => {
-  res.send("<h1>Home</h1>");
+// send data into DB
+app.post("/register", (req, res) => {
+  const name = req.body.name; // only possible from express.json
+
+  const city = req.body.city;
+  const email = req.body.email;
+
+  const password = req.body.password;
+  const confirmPassword = req.body.passwordConfirm;
+
+  // const { name, email, city, password, confirmPassword } = req.body; THIS IS SHORT VERSION, destructured
 });
-//
 
 // app.post("/register", (req, res) => {
 //   //grab vals

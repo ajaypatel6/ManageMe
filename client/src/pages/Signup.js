@@ -30,8 +30,9 @@ const Signup = () => {
   return (
     <>
       <h1>Create an Account</h1>
-      {/* create form comp */}
-      <form action="signup">
+      {/* create form comp ....
+       is post nec??*/}
+      <form action="signup" method="POST">
         <div>
           <label>First Name</label>
           <input
@@ -68,6 +69,12 @@ const Signup = () => {
             onChange={(e) => {
               setPassword(e.target.value);
             }}
+          />
+          <label>Confirm Password</label>
+          <input
+            type="text"
+            placeholder="Confirm your password"
+            name="passwordConfirm"
           />
           <input
             type="submit"
