@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import Axios from "axios";
 // import SignupForm from "../components/SignupForm";
 // import { Actions } from "../Actions";
-import axios from "axios";
 
 const Signup = () => {
   const [name, setName] = useState("");
@@ -63,7 +62,7 @@ const Signup = () => {
           />
           <label>Password</label>
           <input
-            type="text"
+            type="password"
             placeholder="Enter a password"
             name="password"
             onChange={(e) => {
@@ -72,7 +71,7 @@ const Signup = () => {
           />
           <label>Confirm Password</label>
           <input
-            type="text"
+            type="password"
             placeholder="Confirm your password"
             name="passwordConfirm"
           />
@@ -85,7 +84,7 @@ const Signup = () => {
         </div>
       </form>
 
-      <Link to="/profile" className="">
+      <Link to="/" className="">
         <button>Back home</button>
       </Link>
     </>

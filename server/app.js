@@ -31,46 +31,53 @@ db.connect((error) => {
   }
 });
 
+app.get("/test", (req, res) => {
+  res.send("<h1>Teset</h1>");
+  res.render("test");
+  console.log("yo");
+});
+
 // send data into DB
 // conisered a CONTROLLER .. you could put this isn a different file
 
-app.post("/register", (req, res) => {
-  const name = req.body.name; // only possible from express.json
+// app.post("/register", (req, res) => {
+//   const name = req.body.name; // only possible from express.json
 
-  const city = req.body.city;
-  const email = req.body.email;
+//   const city = req.body.city;
+//   const email = req.body.email;
 
-  const password = req.body.password;
-  const confirmPassword = req.body.passwordConfirm;
+//   const password = req.body.password;
+//   const confirmPassword = req.body.passwordConfirm;
 
-  // const { name, email, city, password, confirmPassword } = req.body; THIS IS SHORT VERSION, destructured
+//   // const { name, email, city, password, confirmPassword } = req.body; THIS IS SHORT VERSION, destructured
 
-  db.query(
-    "INSERT INTO users (name,email,password,city) VALUES (?,?,?,?)",
-    [name, email, password, city],
-    (err, result) => {
-      if (err) {
-        console.log(err);
-      }
-      if (result.length > 0) {
-        return res.render("register", {
-          message: "The email is in use already",
-        });
-      } else if (password !== passwordConfirm) {
-        return res.render("register", {
-          message: "Passwords not matching",
-        });
-      }
-    }
-  );
+//   db.query(
+//     "INSERT INTO users (name,email,password,city) VALUES (?,?,?,?)",
+//     [name, email, password, city],
+//     (err, result) => {
+//       if (err) {
+//         console.log(err);
+//       }
+//       if (result.length > 0) {
+//         return res.render("register", {
+//           message: "The email is in use already",
+//         });
+//       } else if (password !== passwordConfirm) {
+//         return res.render("register", {
+//           message: "Passwords not matching",
+//         });
+//       }
+//     }
+//   );
 
-  //1503
+//   //1503
 
-  res.send("registration submitted");
-});
+//   res.send("registration submitted");
+// });
 
 // app.post("/register", (req, res) => {
 //   //grab vals
+
 //   const name = req.body.name; // only possible from express.json
 //   const password = req.body.password;
 //   const city = req.body.city;
@@ -79,9 +86,7 @@ app.post("/register", (req, res) => {
 //   db.query(
 //     "INSERT INTO users (name,email,password,city) VALUES (?,?,?,?)",
 //     [name, email, password, city],
-//     (err, result) => {
-//       console.log(err);
-//     }
+//     (err, res) => {}
 //   );
 // });
 
