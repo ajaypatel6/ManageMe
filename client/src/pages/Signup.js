@@ -10,14 +10,16 @@ const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const register = () => {
+  const register = (event) => {
+    event.preventDefault(); // FIXES!!!!
+
     Axios.post("http://localhost:3001/register", {
       name: name,
       city: city,
       email: email,
       password: password,
     }).then((response) => {
-      console.log(response);
+      console.log(response.data);
     });
   };
 
@@ -69,12 +71,12 @@ const Signup = () => {
               setPassword(e.target.value);
             }}
           />
-          <label>Confirm Password</label>
+          {/* <label>Confirm Password</label>
           <input
             type="password"
             placeholder="Confirm your password"
             name="passwordConfirm"
-          />
+          /> */}
           <input
             type="submit"
             value="Signup"
