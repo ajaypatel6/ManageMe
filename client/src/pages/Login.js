@@ -7,7 +7,15 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [loggedIn, setLoggedIn] = useState(false);
 
+  if (loggedIn) {
+    window.location = "/";
+    // remove login
+    // remove register
+    // add logout
+  }
+
   const login = (event) => {
+    console.log(loggedIn);
     event.preventDefault(); // FIXES!!!!
     Axios.post("http://localhost:3001/login", {
       email: email,
@@ -16,14 +24,11 @@ const Login = () => {
       // need context for loggedIn status
       console.log(response);
       // delayy, need to do twice? wtf
-      // if (response.data.message === "Logging") {
-      //   setLoggedIn(true);
-      // }
+      if (response.data.message === "Logging") {
+        console.log(loggedIn);
+        setLoggedIn(true);
+      }
     });
-
-    if (loggedIn) {
-      window.location = "/";
-    }
   };
 
   return (

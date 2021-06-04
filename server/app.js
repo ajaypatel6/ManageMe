@@ -14,8 +14,12 @@ app.use(express.json()); //parsing all // FOR vals in form is JSON
 // parse form data, middleware for forms
 app.use(express.urlencoded({ extended: false }));
 
+//view engine?
+app.set("view engine", "jade");
+
 // validate emails
 var validator = require("email-validator");
+const { log } = require("console");
 
 const weatherKey = "18eda1685298ff0be778b9f349d22244";
 
@@ -122,18 +126,24 @@ app.post("/register", (req, res) => {
   if (password.length < 8) {
     res.send("Password needs to be atleast 8 characters");
   }
+
+  // // checking email?
   db.query(
     "INSERT INTO users (name,email,password,city) VALUES (?,?,?,?)",
     [name, email, password, city],
     (err, res) => {
       if (err) {
-        console.log(err);
+        console.log(err.code);
+        console.log(res);
+
+        // res.send("duplicate");
       }
+      // res.send("duplicate email");
     }
   );
-
-  res.send("<h1>Registered</h1>");
-  res.redirect("/Registered");
+  //always sends
+  // res.send("registered");
+  // res.redirect("/Registered");
 });
 
 app.post("/login", (req, res) => {
@@ -149,9 +159,9 @@ app.post("/login", (req, res) => {
       }
 
       if (result.length > 0) {
-        // res.send({ message: "Logging" });
+        res.send({ message: "Logging" });
 
-        res.send(result);
+        // res.send(result);
 
         // logged in
       } else {
