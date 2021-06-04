@@ -13,11 +13,12 @@ const Account = () => {
     }
     return (
       <div>
-        <Link to="/Login" className="">
-          <button>Login</button>
+        <h1>Account</h1>
+        <Link to="/Login">
+          <button className="loginProfileButton">Login</button>
         </Link>
-        <Link to="/Signup" className="">
-          <button>Signup</button>
+        <Link to="/Signup">
+          <button className="signupProfileButton">Signup</button>
         </Link>
       </div>
     );

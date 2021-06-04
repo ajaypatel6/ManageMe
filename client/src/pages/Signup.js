@@ -9,6 +9,14 @@ const Signup = () => {
   const [city, setCity] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loggedIn, setLoggedIn] = useState(false);
+
+  if (loggedIn) {
+    window.location = "/";
+    // remove login
+    // remove register
+    // add logout
+  }
 
   const register = (event) => {
     event.preventDefault(); // FIXES!!!!
@@ -19,7 +27,10 @@ const Signup = () => {
       email: email,
       password: password,
     }).then((response) => {
-      console.log(response.data);
+      if (response.data.message === "Signing") {
+        console.log(loggedIn);
+        setLoggedIn(true);
+      }
     });
   };
 

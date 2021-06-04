@@ -58,10 +58,10 @@ const Login = () => {
           <input
             type="submit"
             value="Login"
-            className="loginButton"
+            className="loginButton "
             // onClick={(e) => this.handleFormSubmit(e)}
             onClick={login}
-          />{" "}
+          />
         </div>
       </form>
       <Link to="/Account" className="">

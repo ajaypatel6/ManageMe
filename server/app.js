@@ -131,19 +131,22 @@ app.post("/register", (req, res) => {
   db.query(
     "INSERT INTO users (name,email,password,city) VALUES (?,?,?,?)",
     [name, email, password, city],
-    (err, res) => {
+    (err, result) => {
       if (err) {
-        console.log(err.code);
-        console.log(res);
-
-        // res.send("duplicate");
+        console.log({ err: err });
+        res.send({ message: "Cant signup" });
       }
-      // res.send("duplicate email");
+      // console.log(res); // longer results
+      // console.log(result);
+      // happens on first succesful sign up
+      res.send({ message: "Signing" });
+      // res.redirect("dashoboard");
+      // res.send(result);
+
+      // logged in
     }
   );
-  //always sends
-  // res.send("registered");
-  // res.redirect("/Registered");
+  //post
 });
 
 app.post("/login", (req, res) => {
@@ -169,6 +172,7 @@ app.post("/login", (req, res) => {
       }
     }
   );
+  // post
 });
 
 app.get("/getWeather", (req, res) => {
