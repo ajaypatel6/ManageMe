@@ -9,15 +9,20 @@ export const links = [
     url: "/stats",
     text: "stats",
   },
+  // {
+  //   id: 3,
+  //   url: "/Login",
+  //   text: "Login",
+  // },
+  // {
+  //   id: 4,
+  //   url: "/Signup",
+  //   text: "Signup",
+  // },
   {
-    id: 3,
-    url: "/Login",
-    text: "Login",
-  },
-  {
-    id: 4,
-    url: "/Signup",
-    text: "Register",
+    id: 6,
+    url: "/Account",
+    text: "Account",
   },
   {
     id: 5,

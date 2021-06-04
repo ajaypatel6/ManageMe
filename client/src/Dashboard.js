@@ -9,6 +9,7 @@ import Settings from "./pages/Settings";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Meditate from "./pages/Meditate";
+import Account from "./pages/Account";
 
 //components
 import Header from "./components/Header";
@@ -54,6 +55,9 @@ function Dashboard() {
           </Route>
           <Route path="/Signup">
             <Signup />
+          </Route>
+          <Route path="/Account">
+            <Account />
           </Route>
           <Route path="/Settings">
             <Settings />
