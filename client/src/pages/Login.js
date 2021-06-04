@@ -64,8 +64,8 @@ const Login = () => {
           />{" "}
         </div>
       </form>
-      <Link to="/profile" className="">
-        <button>Back home</button>
+      <Link to="/Account" className="">
+        <button>Go back</button>
       </Link>
     </>
   );

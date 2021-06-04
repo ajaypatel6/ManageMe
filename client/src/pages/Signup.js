@@ -86,8 +86,8 @@ const Signup = () => {
         </div>
       </form>
 
-      <Link to="/" className="">
-        <button>Back home</button>
+      <Link to="/Account" className="">
+        <button>Go back</button>
       </Link>
     </>
   );
