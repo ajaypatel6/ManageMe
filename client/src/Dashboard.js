@@ -22,7 +22,7 @@ import CoolInfo from "./components/CoolInfo";
 // import { Actions } from "./Actions";
 
 function Dashboard() {
-  // const data = Actions();
+  const [loggedIn, setLoggedIn] = useState(false);
 
   // Meditation preface if not meditate
 

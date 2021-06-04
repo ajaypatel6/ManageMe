@@ -7,6 +7,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [loggedIn, setLoggedIn] = useState(false);
 
+  // context for the entire site
   if (loggedIn) {
     window.location = "/";
     // remove login
