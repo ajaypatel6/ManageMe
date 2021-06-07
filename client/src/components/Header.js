@@ -1,14 +1,15 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useContext } from "react";
 import logo from "./../images/rsz_logo.png";
 import { FaBars } from "react-icons/fa";
 
 import { links } from "./../data/data";
+import { UserContext } from "../UserContext";
 
 const Header = () => {
   const [showLinks, setShowLinks] = useState(false);
   const linksContainerRef = useRef(null);
   const linksRef = useRef(null);
-  const [loggedIn, setLoggedIn] = useState(false);
+  const { loggedIn, setLoggedIn } = useContext(UserContext);
 
   useEffect(() => {
     const linksHeight = linksRef.current.getBoundingClientRect().height;

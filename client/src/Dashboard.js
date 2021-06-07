@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 //pages
 import Error from "./pages/Error";
 import Stats from "./pages/Stats";
-import Profile from "./pages/Profile";
+// import Profile from "./pages/Profile";
 import Settings from "./pages/Settings";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
-import Meditate from "./pages/Meditate";
+// import Meditate from "./pages/Meditate";
 import Account from "./pages/Account";
 
 //components
@@ -24,8 +24,8 @@ import { UserContext } from "./UserContext";
 // import { Actions } from "./Actions";
 
 function Dashboard() {
-  // const [loggedIn, setLoggedIn] = useState(false);
-  const [value, setValue] = useState("hello from dash");
+  const [loggedIn, setLoggedIn] = useState(false);
+  // const [value, setValue] = useState("hello from dash");
 
   // Meditation preface if not meditate
 
@@ -33,7 +33,7 @@ function Dashboard() {
   return (
     <>
       <Router>
-        <UserContext.Provider value={{ value, setValue }}>
+        <UserContext.Provider value={{ loggedIn, setLoggedIn }}>
           <Header></Header>
           {/* meditation conditional? */}
           <Switch>
