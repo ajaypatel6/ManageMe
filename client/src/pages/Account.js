@@ -1,34 +1,40 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
+import { UserContext } from "../UserContext";
 
 const Account = () => {
-  const [loggedIn, setLoggedIn] = useState(false);
+  // const [loggedIn, setLoggedIn] = useState(false);
   const [loading, setLoading] = useState(true);
 
+  // const msg = useContext(UserContext);
   // CHECK in logged in
+  // const { loggedIn, setLoggedIn } = useContext(UserContext);
+  const { value, setValue } = useContext(UserContext);
 
-  if (loading) {
-    if (loggedIn) {
-      setLoading(false);
-    }
-    return (
-      <div>
-        <h1>Account</h1>
-        <Link to="/Login">
-          <button className="loginProfileButton">Login</button>
-        </Link>
-        <Link to="/Signup">
-          <button className="signupProfileButton">Signup</button>
-        </Link>
-      </div>
-    );
-  }
-
+  // if (loading) {
+  //   if (loggedIn) {
+  //     setLoading(false);
+  //   }
   return (
-    <>
-      <h1>Logout</h1>
-    </>
+    <div>
+      <h1>Account</h1>
+      <div>{value}</div>
+
+      <Link to="/Login">
+        <button className="loginProfileButton">Login</button>
+      </Link>
+      <Link to="/Signup">
+        <button className="signupProfileButton">Signup</button>
+      </Link>
+    </div>
   );
+  // }
+
+  // return (
+  //   <>
+  //     <h1>Logout</h1>
+  //   </>
+  // );
 };
 
 export default Account;

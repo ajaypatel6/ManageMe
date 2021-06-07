@@ -135,13 +135,10 @@ app.post("/register", (req, res) => {
       if (err) {
         console.log({ err: err });
         res.send({ message: "Cant signup" });
+        // render message?
       }
-      // console.log(res); // longer results
-      // console.log(result);
-      // happens on first succesful sign up
+
       res.send({ message: "Signing" });
-      // res.redirect("dashoboard");
-      // res.send(result);
 
       // logged in
     }

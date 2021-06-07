@@ -1,5 +1,6 @@
 import React, { useState, useContext, useReducer, useEffect } from "react";
-const AppContext = React.createContext();
+
+export const UserContext = React.createContext(null);
 
 const initialState = {
   loggedIn: false,

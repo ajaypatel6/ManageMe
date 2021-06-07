@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { UserContext } from "../UserContext";
 
 // combine with profile?
 const Settings = () => {
   //If not logged in, say to log in
   const [loggedIn, setLoggedIn] = useState(false);
   const [loading, setLoading] = useState(true);
+  const msg = useContext(UserContext);
 
   // CHECK in logged in
 

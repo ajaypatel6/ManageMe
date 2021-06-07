@@ -8,6 +8,7 @@ const Header = () => {
   const [showLinks, setShowLinks] = useState(false);
   const linksContainerRef = useRef(null);
   const linksRef = useRef(null);
+  const [loggedIn, setLoggedIn] = useState(false);
 
   useEffect(() => {
     const linksHeight = linksRef.current.getBoundingClientRect().height;
