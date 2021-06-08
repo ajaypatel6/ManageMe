@@ -9,7 +9,11 @@ const Header = () => {
   const [showLinks, setShowLinks] = useState(false);
   const linksContainerRef = useRef(null);
   const linksRef = useRef(null);
-  const { loggedIn, setLoggedIn } = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
+
+  // null
+  console.log("header log");
+  console.log(user);
 
   useEffect(() => {
     const linksHeight = linksRef.current.getBoundingClientRect().height;
@@ -48,7 +52,7 @@ const Header = () => {
               })}
             </ul>
           </div>
-          <h3>Track Yourself, "NAME"</h3>
+          <h3>Track Yourself, "{user}"</h3>
         </div>
       </nav>
     </>

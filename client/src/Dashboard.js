@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 //pages
@@ -24,16 +24,21 @@ import { UserContext } from "./UserContext";
 // import { Actions } from "./Actions";
 
 function Dashboard() {
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [user, setUser] = useState(null);
   // const [value, setValue] = useState("hello from dash");
 
+  //prevent value to change unless setvalue,value change
+  const value = useMemo(() => ({ user, setUser }), [user, setUser]);
   // Meditation preface if not meditate
+
+  console.log("dashboard user");
+  console.log(user);
 
   // ELSE (if canclled/ meditation done)
   return (
     <>
       <Router>
-        <UserContext.Provider value={{ loggedIn, setLoggedIn }}>
+        <UserContext.Provider value={value}>
           <Header></Header>
           {/* meditation conditional? */}
           <Switch>

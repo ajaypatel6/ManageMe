@@ -8,9 +8,12 @@ const Account = () => {
 
   // const msg = useContext(UserContext);
   // CHECK in logged in
-  const { loggedIn, setLoggedIn } = useContext(UserContext);
+
+  const { user, setUser } = useContext(UserContext);
+  console.log("1 log");
+  console.log(user);
   // const { value, setValue } = useContext(UserContext);
-  console.log(loggedIn);
+  // console.log(user);
   // if (loading) {
   //   if (loggedIn) {
   //     setLoading(false);
@@ -18,7 +21,7 @@ const Account = () => {
   return (
     <div>
       <h1>Account</h1>
-      {/* <div>{value}</div> */}
+      <pre>{JSON.stringify(user, null, 2)}</pre>
 
       <Link to="/Login">
         <button className="loginProfileButton">Login</button>

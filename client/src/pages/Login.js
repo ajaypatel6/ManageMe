@@ -1,19 +1,30 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import Axios from "axios";
+import { UserContext } from "../UserContext";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [loggedIn, setLoggedIn] = useState(false);
+
+  var [loggedIn, setLoggedIn] = useState(false);
+
+  const { user, setUser } = useContext(UserContext);
+
+  console.log("first log");
+  console.log(user);
+
+  if (user != null) {
+    loggedIn = true;
+  }
 
   // context for the entire site
-  if (loggedIn) {
-    window.location = "/";
-    // remove login
-    // remove register
-    // add logout
-  }
+  // if (loggedIn) {
+  //   window.location = "/Account";
+  //   // remove login
+  //   // remove register
+  //   // add logout
+  // }
 
   const login = (event) => {
     console.log(loggedIn);
@@ -26,11 +37,21 @@ const Login = () => {
       console.log(response);
       // delayy, need to do twice? wtf
       if (response.data.message === "Logging") {
-        console.log(loggedIn);
-        setLoggedIn(true);
+        // console.log(loggedIn);
+        // setUser()
+        console.log(email);
+        setUser(email);
       }
     });
   };
+
+  if (user) {
+    return (
+      <>
+        <div>Welcome {user}</div>
+      </>
+    );
+  }
 
   return (
     <>

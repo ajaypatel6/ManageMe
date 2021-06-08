@@ -3,12 +3,12 @@ import { UserContext } from "../UserContext";
 
 const Stats = () => {
   const [loading, setLoading] = useState(true);
-  const { loggedIn, setLoggedIn } = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
 
   // CHECK in logged in
 
   if (loading) {
-    if (loggedIn) {
+    if (user) {
       setLoading(false);
     }
     return (
