@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useContext } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 //pages
@@ -17,62 +17,63 @@ import TaskTimer from "./components/TaskTimer";
 import Tasks from "./components/Tasks";
 import MeditatePrompt from "./components/MeditatePrompt";
 import CoolInfo from "./components/CoolInfo";
-import { UserContext } from "./UserContext";
+// the context to import, for consumption
+import { UserContext, UserProvider } from "./UserContext";
 
 // context
 // import { Provider } from "./Context";
 // import { Actions } from "./Actions";
 
 function Dashboard() {
-  const [user, setUser] = useState(null);
-  // const [value, setValue] = useState("hello from dash");
+  // const [user, setUser] = useState(null);
+
+  // const { user } = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
 
   //prevent value to change unless setvalue,value change
-  const value = useMemo(() => ({ user, setUser }), [user, setUser]);
+  // const value = useMemo(() => ({ user, setUser }), [user, setUser]);
   // Meditation preface if not meditate
 
   console.log("dashboard user");
-  console.log(user);
+  // console.log(user);
 
   // ELSE (if canclled/ meditation done)
   return (
     <>
       <Router>
-        <UserContext.Provider value={value}>
-          <Header></Header>
-          {/* meditation conditional? */}
-          <Switch>
-            <Route exact path="/">
-              {/* home page? */}
-              <MeditatePrompt />
-              <TaskTimer />
-              <Tasks />
-              <CoolInfo />
-            </Route>
-            <Route path="/Stats">
-              <Stats />
-            </Route>
-            {/*  */}
-            {/* <Route path="/Profile">
+        <Header></Header>
+        {/* meditation conditional? */}
+        <Switch>
+          <Route exact path="/">
+            {/* home page? */}
+            <MeditatePrompt />
+            <TaskTimer />
+            <Tasks />
+            <CoolInfo />
+          </Route>
+          <Route path="/Stats">
+            <Stats />
+          </Route>
+          {/*  */}
+          {/* <Route path="/Profile">
             <Profile />
           </Route> */}
-            <Route path="/Login">
-              <Login />
-            </Route>
-            <Route path="/Signup">
-              <Signup />
-            </Route>
-            <Route path="/Account">
-              <Account />
-            </Route>
-            <Route path="/Settings">
-              <Settings />
-            </Route>
-            <Route path="*">
-              <Error />
-            </Route>
-          </Switch>
-        </UserContext.Provider>
+          <Route path="/Login">
+            <Login />
+          </Route>
+          <Route path="/Signup">
+            <Signup />
+          </Route>
+          <Route path="/Account">
+            <Account />
+          </Route>
+          <Route path="/Settings">
+            <Settings />
+          </Route>
+          <Route path="*">
+            <Error />
+          </Route>
+        </Switch>
       </Router>
     </>
   );
