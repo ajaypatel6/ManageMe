@@ -29,7 +29,7 @@ function Dashboard() {
 
   // const { user } = useContext(UserContext);
   const { user, setUser } = useContext(UserContext);
-  console.log(user);
+  console.log(user.name);
   //prevent value to change unless setvalue,value change
   // const value = useMemo(() => ({ user, setUser }), [user, setUser]);
   // Meditation preface if not meditate
