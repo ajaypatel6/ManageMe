@@ -16,7 +16,7 @@ const Header = () => {
   // console.log(user);
 
   // null
-  console.log("header log");
+  // console.log("header log");
   // console.log(user.name);
   // console.log(user);
 

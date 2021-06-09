@@ -8,7 +8,9 @@ export const UserContext = createContext();
 
 // destructures props.children -> children
 export const UserProvider = ({ children }) => {
+  //   const [user, setUser] = useState({ name: "Guest" });
   const [user, setUser] = useState({ name: "Guest" });
+
   return (
     // user,setuser as states
     // wow a typo fucked me!!!!!!! {()} - > {{}}

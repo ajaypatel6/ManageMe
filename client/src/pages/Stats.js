@@ -7,8 +7,10 @@ const Stats = () => {
 
   // CHECK in logged in
 
+  console.log(user);
+
   if (loading) {
-    if (user) {
+    if (user.name != "Guest") {
       setLoading(false);
     }
     return (

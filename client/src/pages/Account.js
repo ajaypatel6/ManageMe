@@ -12,32 +12,41 @@ const Account = () => {
   const { user, setUser } = useContext(UserContext);
   console.log("1 log");
   console.log(user);
+
+  // logout function
+  const logout = (event) => {
+    console.log("test");
+    window.location = "/Account";
+    setLoading(true);
+  };
+
   // const { value, setValue } = useContext(UserContext);
   // console.log(user);
-  // if (loading) {
-  //   if (loggedIn) {
-  //     setLoading(false);
-  //   }
+  if (loading) {
+    if (user.name != "Guest") {
+      setLoading(false);
+    }
+    return (
+      <div>
+        <h1>Account</h1>
+        {/* <pre>{JSON.stringify(user, null, 2)}</pre> */}
+        <pre>{user.name}</pre>
+        <Link to="/Login">
+          <button className="loginProfileButton">Login</button>
+        </Link>
+        <Link to="/Signup">
+          <button className="signupProfileButton">Signup</button>
+        </Link>
+      </div>
+    );
+  }
+
   return (
-    <div>
-      <h1>Account</h1>
-      <pre>{JSON.stringify(user, null, 2)}</pre>
-
-      <Link to="/Login">
-        <button className="loginProfileButton">Login</button>
-      </Link>
-      <Link to="/Signup">
-        <button className="signupProfileButton">Signup</button>
-      </Link>
-    </div>
+    <>
+      <h1>Logout</h1>
+      <button onClick={logout}>Logout</button>
+    </>
   );
-  // }
-
-  // return (
-  //   <>
-  //     <h1>Logout</h1>
-  //   </>
-  // );
 };
 
 export default Account;

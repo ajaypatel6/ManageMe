@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import Axios from "axios";
 // import SignupForm from "../components/SignupForm";
 // import { Actions } from "../Actions";
+import { UserContext } from "../UserContext";
 
 const Signup = () => {
   const [name, setName] = useState("");
@@ -10,9 +11,13 @@ const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loggedIn, setLoggedIn] = useState(false);
+  // const { user, setUser } = useContext(UserContext);
 
+  console.log("signup ");
   if (loggedIn) {
-    window.location = "/";
+    window.location = "/Account";
+    // to an account created succesfly page
+
     // remove login
     // remove register
     // add logout
@@ -30,6 +35,8 @@ const Signup = () => {
       if (response.data.message === "Signing") {
         console.log(loggedIn);
         setLoggedIn(true);
+
+        // setUser({ name: name });
       }
     });
   };

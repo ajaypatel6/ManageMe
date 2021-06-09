@@ -11,20 +11,24 @@ const Login = () => {
 
   const { user, setUser } = useContext(UserContext);
 
-  console.log("first log");
-  console.log(user);
+  //useEffect for user?
 
-  if (user != null) {
+  console.log(user.name);
+  // console.log("first log");
+  // console.log(user);
+
+  if (user.name != "Guest") {
     loggedIn = true;
   }
 
   // context for the entire site
-  // if (loggedIn) {
-  //   window.location = "/Account";
-  //   // remove login
-  //   // remove register
-  //   // add logout
-  // }
+  // refreshing put name not satying
+  if (loggedIn) {
+    window.location = "/Account";
+    // remove login
+    // remove register
+    // add logout
+  }
 
   const login = (event) => {
     console.log(loggedIn);
@@ -40,18 +44,21 @@ const Login = () => {
         // console.log(loggedIn);
         // setUser()
         console.log(email);
-        setUser(email);
+        // setUser(email);
+        console.log(user);
+        setUser({ name: "Rick" });
+        console.log(user);
       }
     });
   };
 
-  if (user) {
-    return (
-      <>
-        <div>Welcome {user}</div>
-      </>
-    );
-  }
+  // if (user) {
+  //   return (
+  //     <>
+  //       <div>Welcome {user}</div>
+  //     </>
+  //   );
+  // }
 
   return (
     <>
