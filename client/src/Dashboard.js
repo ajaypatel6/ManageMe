@@ -18,7 +18,7 @@ import Tasks from "./components/Tasks";
 import MeditatePrompt from "./components/MeditatePrompt";
 import CoolInfo from "./components/CoolInfo";
 // the context to import, for consumption
-import { UserContext, UserProvider } from "./UserContext";
+import { UserContext } from "./UserContext";
 
 // context
 // import { Provider } from "./Context";
@@ -29,7 +29,7 @@ function Dashboard() {
 
   // const { user } = useContext(UserContext);
   const { user, setUser } = useContext(UserContext);
-
+  console.log(user);
   //prevent value to change unless setvalue,value change
   // const value = useMemo(() => ({ user, setUser }), [user, setUser]);
   // Meditation preface if not meditate

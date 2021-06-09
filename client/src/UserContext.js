@@ -11,7 +11,8 @@ export const UserProvider = ({ children }) => {
   const [user, setUser] = useState({ name: "Guest" });
   return (
     // user,setuser as states
-    <UserContext.Provider value={(user, setUser)}>
+    // wow a typo fucked me!!!!!!! {()} - > {{}}
+    <UserContext.Provider value={{ user, setUser }}>
       {children}
     </UserContext.Provider>
   );

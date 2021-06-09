@@ -13,7 +13,7 @@ const Header = () => {
 
   // context to consume
   const { user, setUser } = useContext(UserContext);
-  console.log(user);
+  // console.log(user);
 
   // null
   console.log("header log");
@@ -57,7 +57,7 @@ const Header = () => {
               })}
             </ul>
           </div>
-          {/* <h3>Track Yourself, {user.name}</h3> */}
+          <h3>Track Yourself, {user.name}</h3>
         </div>
       </nav>
     </>
