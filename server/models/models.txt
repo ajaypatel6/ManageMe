@@ -1,0 +1,2 @@
+Models handle dat logic
+interact with db

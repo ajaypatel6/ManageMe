@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Axios from "axios";
 import { UserContext } from "../UserContext";
@@ -12,6 +12,10 @@ const Login = () => {
   const { user, setUser } = useContext(UserContext);
 
   //useEffect for user?
+  // side effect, when something happens..
+  useEffect(() => {
+    console.log("rendering");
+  }, []);
 
   console.log(user.name);
   // console.log("first log");
@@ -24,30 +28,36 @@ const Login = () => {
   // context for the entire site
   // refreshing put name not satying
   if (loggedIn) {
-    window.location = "/Account";
+    // once on account, the name goes back to guest
+    // window.location = "/Account";
     // remove login
     // remove register
     // add logout
   }
 
   const login = (event) => {
-    console.log(loggedIn);
+    console.log(loggedIn + " logged in");
     event.preventDefault(); // FIXES!!!!
     Axios.post("http://localhost:3001/login", {
       email: email,
       password: password,
     }).then((response) => {
       // need context for loggedIn status
-      console.log(response);
+      // console.log(response);
       // delayy, need to do twice? wtf
       if (response.data.message === "Logging") {
         // console.log(loggedIn);
         // setUser()
-        console.log(email);
+
+        // need to get name from db
+
+        // console.log(email);
         // setUser(email);
-        console.log(user);
-        setUser({ name: "Rick" });
-        console.log(user);
+        console.log(user.name + " pre set");
+        setUser({ name: email });
+        // setUser("yea mayn");
+        // not setting until click again? : o
+        console.log(user.name + " post set");
       }
     });
   };

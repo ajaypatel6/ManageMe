@@ -1,0 +1,11 @@
+controller handles reuqest flow, is the first thing from user before model/view
+// controller NEVER interact with data logic, only use model for the interactions, tells model what to do 
+// controllers handle fail/ success, model only handle data
+
+1. reuqest
+2. get data (model) and send data to controller
+3. ger presentation, controller -> view
+
+
+Views -> handle data presentation, dynamic render (react frotnend portion?) (html stuff!)
+Model and View never interact 

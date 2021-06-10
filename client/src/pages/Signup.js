@@ -58,6 +58,7 @@ const Signup = () => {
             type="text"
             placeholder="Name"
             name="Name"
+            required
             onChange={(e) => {
               setName(e.target.value);
             }}
