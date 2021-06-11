@@ -1,38 +1,45 @@
 const express = require("express"); // to start server
-const mysql = require("mysql"); // for sql
-var request = require("request"); // for request weather
-
-const app = express();
-const dotenv = require("dotenv"); // env for passwords
-dotenv.config({ path: "./.env" });
-const path = require("path");
-
+const bodyParser = require("body-parser");
 const cors = require("cors"); // NEED
 
-// this is the same as the authroutes, access-contrl-allow-headers, that is manually alter header
-app.use(cors()); // allow cross platform
+const app = express();
 
-// this is
 var corsOptions = {
   origin: "http://localhost:3001",
 };
 
-app.use(express.json()); //parsing all // FOR vals in form is JSON
+// this is the same as the authroutes, access-contrl-allow-headers, that is manually alter header
+app.use(cors(corsOptions)); // allow cross platform
 
-// parse form data, middleware for forms
-app.use(express.urlencoded({ extended: false }));
+// parse reqs of content-type-application json, deprecated i guess?
+app.use(bodyParser.json());
 
-const bodyParser = require("body-parser");
+// parse form data, middleware for forms.. true/ false??
+// this was body parser
+app.use(express.urlencoded({ extended: true }));
 
-//view engine?
-app.set("view engine", "jade");
-
-// validate emails
-var validator = require("email-validator");
-const { log } = require("console");
+const db = require("./models");
+const Role = db.role;
 
 const weatherKey = "18eda1685298ff0be778b9f349d22244";
 
+// ------------------------------------------------------------------------------------------------------------
+// creates tables? force:true will drop the table if it already exists..?
+
+// will be back
+// db.sequelize.sync({ force: true }).then(() => {
+//   console.log("Drop/Resync DB with {force: true}");
+//   initial();
+// });
+// ------------------------------------------------------------------------------------------------------------
+// Routes
+
+app.get("/", (req, res) => {
+  res.json({ message: "Welcome " });
+});
+
+// require("./routes/authRoutes")(app);
+// require("./routes/userRoutes")(app);
 // ------------------------------------------------------------------------------------------------------------
 
 const PORT = process.env.PORT || 3001;
@@ -41,30 +48,63 @@ app.listen(PORT, () => {
   console.log(`running server on port ${PORT}`);
 });
 
+function initial() {
+  Role.create({
+    id: 1,
+    name: "user",
+  });
+  Role.create({
+    id: 2,
+    name: "mod",
+  });
+  Role.create({
+    id: 3,
+    name: "admin",
+  });
+}
+
+// OLD
+// OLD
+// OLD
+// OLD
+// ------------------------------------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------------------------------------
+// old rquires..?..
+//not sure why app.use(express.json()) not there
+
+// const mysql = require("mysql"); // for sql
+// var request = require("request"); // for request weather
+
+// const dotenv = require("dotenv"); // env for passwords
+// dotenv.config({ path: "./.env" });
+// const path = require("path");
+
+// app.use(express.json()); //parsing all // FOR vals in form is JSON
+
+// //view engine?
+// app.set("view engine", "jade");
+
+// // validate emails
+// var validator = require("email-validator");
+// const { log } = require("console");
+// ------------------------------------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------------------------------------
 // connect to sql
-const db = mysql.createConnection({
-  user: process.env.DATABASE_USER,
-  host: process.env.DATABASE_HOST,
-  password: process.env.DATABASE_PASSWORD,
-  database: process.env.DATABASE,
-});
+// const db = mysql.createConnection({
+//   user: process.env.DATABASE_USER,
+//   host: process.env.DATABASE_HOST,
+//   password: process.env.DATABASE_PASSWORD,
+//   database: process.env.DATABASE,
+// });
 
-//not doing error check on db.
-db.connect((error) => {
-  if (error) {
-    console.log(error);
-  } else {
-    console.log("ManageMe database connected");
-  }
-});
-
-// ------------------------------------------------------------------------------------------------------------
-// Routes
-
-app.get("/", (req, res) => {
-  res.json({ message: "Welcome " });
-});
-// ------------------------------------------------------------------------------------------------------------
+// //not doing error check on db.
+// db.connect((error) => {
+//   if (error) {
+//     console.log(error);
+//   } else {
+//     console.log("ManageMe database connected");
+//   }
+// });
 
 // app.get("/users", (req, res) => {
 //   db.query("SELECT * FROM users", (err, results) => {

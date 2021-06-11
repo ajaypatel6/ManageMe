@@ -1,5 +1,5 @@
-const { verifySignup } = require("../middleware/SignupVerify");
-
+const { verifySignup } = require("../middleware/verifySignup");
+const controller = require("../controllers/authController");
 module.exports = function (app) {
   app.use(function (req, res, next) {
     res.header(
@@ -11,14 +11,14 @@ module.exports = function (app) {
   });
 
   // probably change this path
-  app.post(
-    "api/auth/signup",
-    [
-      verifySignup.checkDuplicateUsernameOrEmail,
-      verifySignup.checkRolesExisted,
-    ],
-    controller.signup
-  );
+  // app.post(
+  //   "api/auth/signup",
+  //   [
+  //     verifySignup.checkDuplicateUsernameOrEmail,
+  //     verifySignup.checkRolesExisted,
+  //   ],
+  //   controller.signup
+  // );
 
   // probably change this
   app.post("/api/auth/signin", controller.signin);
