@@ -8,7 +8,7 @@ const Sequelize = require("sequelize");
 const sequelize = new Sequelize(config.DB, config.USER, config.PASSWORD, {
   host: config.HOST,
   dialect: config.dialect,
-  //   operatorsAliases: false, // deprecated?
+  // operatorsAliases: false, // deprecated?
 
   pool: {
     max: config.pool.max,

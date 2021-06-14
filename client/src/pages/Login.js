@@ -48,7 +48,7 @@ const Login = () => {
       if (response.data.message === "Logging") {
         // console.log(loggedIn);
         // setUser()
-
+        console.log("logged in?");
         // need to get name from db
 
         // console.log(email);
@@ -59,6 +59,7 @@ const Login = () => {
         // not setting until click again? : o
         console.log(user.name + " post set");
       }
+      console.log("not logged in?");
     });
   };
 
