@@ -10,7 +10,7 @@ const Stats = () => {
   console.log(user);
 
   if (loading) {
-    if (user.name != "Guest") {
+    if (user.name !== "Guest") {
       setLoading(false);
     }
     return (

@@ -1,6 +1,7 @@
 const { JwtAuth } = require("../middleware");
 const controller = require("../controllers/userController");
 
+// DONE
 module.exports = function (app) {
   app.use(function (req, res, next) {
     res.header(
@@ -14,5 +15,11 @@ module.exports = function (app) {
   app.get("/api/test/all", controller.allAccess);
 
   //
-  //   app.get("api/test/mod", [JwtAuth.veri]);
+  app.get("api/test/user", [JwtAuth.verifyToken], controller.userBoard);
+
+  //
+  app.get("api/test/mod", [JwtAuth.verifyToken], controller.moderatorBoard);
+
+  //
+  app.get("api/test/admin", [JwtAuth.verifyToken], controller.adminBoard);
 };

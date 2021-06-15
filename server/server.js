@@ -76,7 +76,9 @@ function initial() {
 // var request = require("request"); // for request weather
 
 // const dotenv = require("dotenv"); // env for passwords
+// // dotenv.config({ path: "./.env" });
 // dotenv.config({ path: "./.env" });
+
 // const path = require("path");
 
 // app.use(express.json()); //parsing all // FOR vals in form is JSON

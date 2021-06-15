@@ -24,7 +24,10 @@ import { UserContext } from "./UserContext";
 // import { Provider } from "./Context";
 // import { Actions } from "./Actions";
 
-function Dashboard() {
+//  Functional or class components
+// seems like class is getting outdated?
+// this is FUNCTIONAL
+function App() {
   // const [user, setUser] = useState(null);
 
   // const { user } = useContext(UserContext);
@@ -79,4 +82,4 @@ function Dashboard() {
   );
 }
 
-export default Dashboard;
+export default App;

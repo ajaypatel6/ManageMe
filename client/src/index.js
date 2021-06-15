@@ -1,13 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import Dashboard from "./Dashboard";
+import App from "./App";
 import { UserContext, UserProvider } from "./UserContext";
 
 ReactDOM.render(
   <React.StrictMode>
     <UserProvider>
-      <Dashboard />
+      <App />
     </UserProvider>
   </React.StrictMode>,
   document.getElementById("root")

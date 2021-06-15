@@ -23,7 +23,7 @@ const Account = () => {
   // const { value, setValue } = useContext(UserContext);
   // console.log(user);
   if (loading) {
-    if (user.name != "Guest") {
+    if (user.name !== "Guest") {
       setLoading(false);
     }
     return (
