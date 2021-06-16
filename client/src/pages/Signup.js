@@ -3,14 +3,26 @@ import { Link } from "react-router-dom";
 import Axios from "axios";
 // import SignupForm from "../components/SignupForm";
 // import { Actions } from "../Actions";
-import { UserContext } from "../UserContext";
+// import { UserContext } from "../UserContext";
+
+import AuthService from "../services/auth.service";
+
+// all register checks
+// pw length
+// valid email
+// required fields
+// username length
+// valid city?
 
 const Signup = () => {
   const [name, setName] = useState("");
   const [city, setCity] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
   const [loggedIn, setLoggedIn] = useState(false);
+  const [message, setMessage] = useState("");
+  const [successful, setSuccesful] = useState(false);
   // const { user, setUser } = useContext(UserContext);
 
   console.log("signup ");
@@ -23,28 +35,36 @@ const Signup = () => {
     // add logout
   }
 
-  const register = (event) => {
-    event.preventDefault(); // FIXES!!!!
+  // const register = (event) => {
+  //   event.preventDefault(); // FIXES!!!!
 
-    Axios.post("http://localhost:3001/register", {
-      name: name,
-      city: city,
-      email: email,
-      password: password,
-    }).then((response) => {
-      if (response.data.message === "Signing") {
-        console.log(loggedIn);
-        setLoggedIn(true);
+  //   Axios.post("http://localhost:3001/register", {
+  //     name: name,
+  //     city: city,
+  //     email: email,
+  //     password: password,
+  //   }).then((response) => {
+  //     if (response.data.message === "Signing") {
+  //       console.log(loggedIn);
+  //       setLoggedIn(true);
 
-        // setUser({ name: name });
-      }
-    });
-  };
+  //       // setUser({ name: name });
+  //     }
+  //   });
+  // };
 
   // const handleFormSubmit = (e) => {
   //   e.preventDefault();
   //   console.log(this.state);
   // };
+
+  const register = (e) => {
+    e.preventDefault();
+    AuthService.register(name, email, password, city).then((response) => {
+      setMessage(response.data.message);
+      setSuccesful(true);
+    });
+  };
 
   return (
     <>

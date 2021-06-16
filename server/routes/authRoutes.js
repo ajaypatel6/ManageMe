@@ -11,6 +11,7 @@ module.exports = function (app) {
     next();
   });
 
+  // these can be whatever name, will probably update to simpler
   app.post(
     "/api/auth/signup",
     [

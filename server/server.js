@@ -31,13 +31,14 @@ const Role = db.role;
 
 //****************** */
 //For production, just insert these rows manually and use sync() without parameters to avoid dropping data:
-// db.sequelize.sync();
+db.sequelize.sync();
 //****************** */
 
-db.sequelize.sync({ force: true }).then(() => {
-  console.log("Drop/Resync DB with {force: true}");
-  initial();
-});
+// for first time
+// db.sequelize.sync({ force: true }).then(() => {
+//   console.log("Drop/Resync DB with {force: true}");
+//   initial();
+// });
 
 //creates 3 new rows in database
 function initial() {

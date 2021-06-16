@@ -9,12 +9,17 @@ const Op = db.Sequelize.Op;
 var jwt = require("jsonwebtoken");
 var bcrypt = require("bcryptjs");
 
+// TODO: validator for email
+// TODO: blank passwords create code
+// TODO: city blank, username blank
+// TODO: full checks for signin
 exports.signup = (req, res) => {
   // Save User to Database
   User.create({
     username: req.body.username,
     email: req.body.email,
     password: bcrypt.hashSync(req.body.password, 8),
+    city: req.body.city,
   })
     .then((user) => {
       if (req.body.roles) {
@@ -41,6 +46,10 @@ exports.signup = (req, res) => {
     });
 };
 
+// need an exports.update...
+
+// need password, WORKS
+// gives back accestokken with correct pw
 exports.signin = (req, res) => {
   User.findOne({
     where: {
@@ -78,6 +87,7 @@ exports.signin = (req, res) => {
           username: user.username,
           email: user.email,
           roles: authorities,
+          city: user.city,
           accessToken: token,
         });
       });

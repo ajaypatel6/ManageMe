@@ -1,10 +1,14 @@
-import React, { useState, useMemo, useContext } from "react";
+import React, { useState, useMemo, useContext, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
+//-------------------------//-------------------------//-------------------------//-------------------------
+import AuthService from "./services/auth.service";
+//-------------------------//-------------------------//-------------------------//-------------------------
 
 //pages
 import Error from "./pages/Error";
 import Stats from "./pages/Stats";
-// import Profile from "./pages/Profile";
+import Profile from "./pages/Profile";
 import Settings from "./pages/Settings";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
@@ -27,18 +31,42 @@ import { UserContext } from "./UserContext";
 //  Functional or class components
 // seems like class is getting outdated?
 // this is FUNCTIONAL
+
 function App() {
   // const [user, setUser] = useState(null);
 
   // const { user } = useContext(UserContext);
-  const { user, setUser } = useContext(UserContext);
-  console.log(user.name);
+  // const { user, setUser } = useContext(UserContext);
+  // console.log(user.name);
   //prevent value to change unless setvalue,value change
   // const value = useMemo(() => ({ user, setUser }), [user, setUser]);
   // Meditation preface if not meditate
 
-  console.log("dashboard user");
+  // console.log("dashboard user");
   // console.log(user);
+  //-------------------------//-------------------------//-------------------------//-------------------------
+
+  //logout state?, bind
+  const [currentUser, setCurrentUser] = useState(undefined);
+
+  function logout() {
+    // is this right?
+
+    currentUser = AuthService.logout;
+  }
+  // modeerator and admin board state?
+  useEffect(() => {
+    console.log("start of useEffect");
+    const user = AuthService.getCurrentUser();
+    console.log(AuthService.getCurrentUser() + " is the user"); // current null
+    if (user) {
+      console.log(user);
+      setCurrentUser(user);
+      // check mod
+      // check admin
+    }
+  }, []); // refresh on what? (user?)
+  //-------------------------//-------------------------//-------------------------//-------------------------
 
   // ELSE (if canclled/ meditation done)
   return (
@@ -70,6 +98,15 @@ function App() {
           <Route path="/Account">
             <Account />
           </Route>
+          {/* {currentUser && ( */}
+          {/* <Route path="/Profile">
+            <Profile />
+          </Route> */}
+          {/* )} */}
+          {/* {currentUser ? (
+            // current user stuff
+            // logout, correct profile, remove signup and login
+          )} */}
           <Route path="/Settings">
             <Settings />
           </Route>
