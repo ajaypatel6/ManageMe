@@ -1,0 +1,3 @@
+To verify a Signup action, we need 2 functions:
+– check if username or email is duplicate or not
+– check if roles in the request is existed or not

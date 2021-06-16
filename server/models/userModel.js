@@ -1,3 +1,4 @@
+//DONE
 module.exports = (sequelize, Sequelize) => {
   const User = sequelize.define("users", {
     username: {
@@ -12,9 +13,9 @@ module.exports = (sequelize, Sequelize) => {
     city: {
       type: Sequelize.STRING,
     },
-    user_id: {
-      type: Sequelize.INTEGER,
-    },
+    // user_id: {
+    //   type: Sequelize.INTEGER,
+    // },
   });
 
   return User;

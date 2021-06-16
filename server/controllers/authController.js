@@ -1,48 +1,55 @@
-// interesting, maybe to see which db? idk
+// DONE
 const db = require("../models");
-
 const config = require("../config/authConfig");
+const User = db.user;
+const Role = db.role;
+
+const Op = db.Sequelize.Op;
 
 var jwt = require("jsonwebtoken");
 var bcrypt = require("bcryptjs");
-//roles..
 
-// ?
-// yea wtf?
-const Op = db.Sequelize.Op;
-
-//
 exports.signup = (req, res) => {
-  // save user to db
+  // Save User to Database
   User.create({
-    name: req.body.username,
+    username: req.body.username,
     email: req.body.email,
-    city: req.body.city,
-    // salt and encrpy that passy!
     password: bcrypt.hashSync(req.body.password, 8),
   })
-    //role stuff, with this user..
-    // only message, nothing regarding roles as for nwo
     .then((user) => {
-      res.send({ message: "User registration successful" });
+      if (req.body.roles) {
+        Role.findAll({
+          where: {
+            name: {
+              [Op.or]: req.body.roles,
+            },
+          },
+        }).then((roles) => {
+          user.setRoles(roles).then(() => {
+            res.send({ message: "User was registered successfully!" });
+          });
+        });
+      } else {
+        // user role = 1
+        user.setRoles([1]).then(() => {
+          res.send({ message: "User was registered successfully!" });
+        });
+      }
     })
     .catch((err) => {
       res.status(500).send({ message: err.message });
     });
 };
 
-// will need roles and whatnot..
-// sequelize will work nicely here
 exports.signin = (req, res) => {
   User.findOne({
     where: {
-      email: req.body.email,
+      username: req.body.username,
     },
   })
-    //
     .then((user) => {
       if (!user) {
-        return res.status(404).send({ message: "Email not found" });
+        return res.status(404).send({ message: "User Not found." });
       }
 
       var passwordIsValid = bcrypt.compareSync(
@@ -53,19 +60,27 @@ exports.signin = (req, res) => {
       if (!passwordIsValid) {
         return res.status(401).send({
           accessToken: null,
-          message: "Invalid Password",
+          message: "Invalid Password!",
         });
       }
 
-      // ?
       var token = jwt.sign({ id: user.id }, config.secret, {
-        expiresIn: 86400, //24 h
+        expiresIn: 86400, // 24 hours
       });
 
       var authorities = [];
-      // roles stuff
-
-      ///
+      user.getRoles().then((roles) => {
+        for (let i = 0; i < roles.length; i++) {
+          authorities.push("ROLE_" + roles[i].name.toUpperCase());
+        }
+        res.status(200).send({
+          id: user.id,
+          username: user.username,
+          email: user.email,
+          roles: authorities,
+          accessToken: token,
+        });
+      });
     })
     .catch((err) => {
       res.status(500).send({ message: err.message });

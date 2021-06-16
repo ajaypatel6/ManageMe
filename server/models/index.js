@@ -1,5 +1,5 @@
+// DONE
 // where the controller goes to do stuff with db
-
 // get the db config from configuration
 const config = require("../config/dbConfig.js");
 
@@ -26,17 +26,16 @@ db.sequelize = sequelize;
 db.user = require("../models/userModel")(sequelize, Sequelize);
 db.role = require("../models/roleModel")(sequelize, Sequelize);
 
-// db.role.belongsToMany(db.user, {
-//   through: "user_roles",
-//   foreignKey: "roleId", // ?
-//   otherKey: "userId", // ?
-// });
-
-// db.role.belongsToMany(db.role, {
-//   through: "user_roles",
-//   foreignKey: "userId", // ?
-//   otherKey: "roleId", // ?
-// });
+db.role.belongsToMany(db.user, {
+  through: "user_roles",
+  foreignKey: "roleId",
+  otherKey: "userId",
+});
+db.user.belongsToMany(db.role, {
+  through: "user_roles",
+  foreignKey: "userId",
+  otherKey: "roleId",
+});
 
 db.ROLES = ["user", "admin", "moderator"];
 module.exports = db;

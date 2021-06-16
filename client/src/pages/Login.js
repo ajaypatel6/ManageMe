@@ -11,6 +11,10 @@ const Login = () => {
 
   const { user, setUser } = useContext(UserContext);
 
+  const handleNameInput = (e) => {
+    setEmail(e.target.value);
+  };
+
   //useEffect for user?
   // side effect, when something happens..
   useEffect(() => {

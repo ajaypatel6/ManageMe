@@ -1,3 +1,4 @@
+// DONE
 // use dotenv here?
 const dotenv = require("dotenv"); // env for passwords
 dotenv.config({ path: "./.env" });

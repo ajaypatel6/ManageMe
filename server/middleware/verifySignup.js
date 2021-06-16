@@ -1,10 +1,10 @@
+// DONE
 const db = require("../models");
 const ROLES = db.ROLES;
 const User = db.user;
 
-// might be wrong
 checkDuplicateUsernameOrEmail = (req, res, next) => {
-  //Username check
+  // Username
   User.findOne({
     where: {
       username: req.body.username,
@@ -12,11 +12,12 @@ checkDuplicateUsernameOrEmail = (req, res, next) => {
   }).then((user) => {
     if (user) {
       res.status(400).send({
-        message: "Username is taken",
+        message: "Failed! Username is already in use!",
       });
       return;
     }
 
+    // Email
     User.findOne({
       where: {
         email: req.body.email,
@@ -24,10 +25,11 @@ checkDuplicateUsernameOrEmail = (req, res, next) => {
     }).then((user) => {
       if (user) {
         res.status(400).send({
-          message: "Email is taken",
+          message: "Failed! Email is already in use!",
         });
         return;
       }
+
       next();
     });
   });
@@ -38,17 +40,19 @@ checkRolesExisted = (req, res, next) => {
     for (let i = 0; i < req.body.roles.length; i++) {
       if (!ROLES.includes(req.body.roles[i])) {
         res.status(400).send({
-          message: "Failed! Role DNE = " + req.body.roles[i],
+          message: "Failed! Role does not exist = " + req.body.roles[i],
         });
         return;
       }
     }
   }
-  // next placement
+
   next();
 };
 
-const verifySignup = {
+const verifySignUp = {
   checkDuplicateUsernameOrEmail: checkDuplicateUsernameOrEmail,
   checkRolesExisted: checkRolesExisted,
 };
+
+module.exports = verifySignUp;

@@ -9,3 +9,12 @@ controller handles reuqest flow, is the first thing from user before model/view
 
 Views -> handle data presentation, dynamic render (react frotnend portion?) (html stuff!)
 Model and View never interact 
+
+There are 2 main functions for Authentication:
+- signup: create new User in database (role is user if not specifying role)
+- signin:
+
+find username of the request in database, if it exists
+compare password with password in database using bcrypt, if it is correct
+generate a token using jsonwebtoken
+return user information & access Token
