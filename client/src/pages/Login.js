@@ -2,32 +2,22 @@ import React, { useState, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Axios from "axios";
 import { UserContext } from "../UserContext";
+import AuthService from "../services/auth.service";
 
 const Login = () => {
-  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
   const [password, setPassword] = useState("");
 
   var [loggedIn, setLoggedIn] = useState(false);
 
-  const { user, setUser } = useContext(UserContext);
-
-  const handleNameInput = (e) => {
-    setEmail(e.target.value);
-  };
+  const [message, setMessage] = useState("");
+  const [successful, setSuccesful] = useState(false);
 
   //useEffect for user?
   // side effect, when something happens..
   useEffect(() => {
     console.log("rendering");
   }, []);
-
-  console.log(user.name);
-  // console.log("first log");
-  // console.log(user);
-
-  if (user.name != "Guest") {
-    loggedIn = true;
-  }
 
   // context for the entire site
   // refreshing put name not satying
@@ -39,34 +29,6 @@ const Login = () => {
     // add logout
   }
 
-  const login = (event) => {
-    console.log(loggedIn + " logged in");
-    event.preventDefault(); // FIXES!!!!
-    Axios.post("http://localhost:3001/login", {
-      email: email,
-      password: password,
-    }).then((response) => {
-      // need context for loggedIn status
-      // console.log(response);
-      // delayy, need to do twice? wtf
-      if (response.data.message === "Logging") {
-        // console.log(loggedIn);
-        // setUser()
-        console.log("logged in?");
-        // need to get name from db
-
-        // console.log(email);
-        // setUser(email);
-        console.log(user.name + " pre set");
-        setUser({ name: email });
-        // setUser("yea mayn");
-        // not setting until click again? : o
-        console.log(user.name + " post set");
-      }
-      console.log("not logged in?");
-    });
-  };
-
   // if (user) {
   //   return (
   //     <>
@@ -75,18 +37,43 @@ const Login = () => {
   //   );
   // }
 
+  const login = (e) => {
+    e.preventDefault();
+    AuthService.login(name, password).then(
+      (response) => {
+        console.log(response.username);
+        // setMessage(response.data.message);
+        setSuccesful(true);
+        // response.render("/profile");
+        // window.location.reload();
+        window.location = "/Account";
+        // console.log(message);
+      },
+      (error) => {
+        const resMessage =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
+        setMessage(resMessage);
+        setSuccesful(false);
+      }
+    );
+  };
+
   return (
     <>
       <h1>Login</h1>
       <form action="login">
         <div>
-          <label>Email</label>
+          <label>Username</label>
           <input
             type="text"
-            placeholder="Enter your Email"
-            name="email"
+            placeholder="Enter your username"
+            name="name"
             onChange={(e) => {
-              setEmail(e.target.value);
+              setName(e.target.value);
             }}
           />
           <label>Password</label>

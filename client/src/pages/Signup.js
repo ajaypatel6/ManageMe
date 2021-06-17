@@ -23,47 +23,30 @@ const Signup = () => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [message, setMessage] = useState("");
   const [successful, setSuccesful] = useState(false);
-  // const { user, setUser } = useContext(UserContext);
 
-  console.log("signup ");
-  if (loggedIn) {
-    window.location = "/Account";
-    // to an account created succesfly page
-
-    // remove login
-    // remove register
-    // add logout
-  }
-
-  // const register = (event) => {
-  //   event.preventDefault(); // FIXES!!!!
-
-  //   Axios.post("http://localhost:3001/register", {
-  //     name: name,
-  //     city: city,
-  //     email: email,
-  //     password: password,
-  //   }).then((response) => {
-  //     if (response.data.message === "Signing") {
-  //       console.log(loggedIn);
-  //       setLoggedIn(true);
-
-  //       // setUser({ name: name });
-  //     }
-  //   });
-  // };
-
-  // const handleFormSubmit = (e) => {
-  //   e.preventDefault();
-  //   console.log(this.state);
-  // };
-
+  // it logs in after 2 clicks
+  // then need to relog
+  // probably a message screen for succesful registration
   const register = (e) => {
     e.preventDefault();
-    AuthService.register(name, email, password, city).then((response) => {
-      setMessage(response.data.message);
-      setSuccesful(true);
-    });
+    AuthService.register(name, email, password, city).then(
+      (response) => {
+        setMessage(response.data.message);
+        setSuccesful(true);
+        console.log(message);
+        window.location = "/Account";
+      },
+      (error) => {
+        const resMessage =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
+        setMessage(resMessage);
+        setSuccesful(false);
+      }
+    );
   };
 
   return (

@@ -10,7 +10,8 @@ var corsOptions = {
 };
 
 // this is the same as the authroutes, access-contrl-allow-headers, that is manually alter header
-app.use(cors(corsOptions)); // allow cross platform
+app.use(cors()); // allow cross platform
+// app.use(cors(corsOptions)); // allow cross platform
 
 // parse reqs of content-type-application json, deprecated i guess?
 app.use(bodyParser.json());

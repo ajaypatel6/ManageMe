@@ -33,17 +33,6 @@ import { UserContext } from "./UserContext";
 // this is FUNCTIONAL
 
 function App() {
-  // const [user, setUser] = useState(null);
-
-  // const { user } = useContext(UserContext);
-  // const { user, setUser } = useContext(UserContext);
-  // console.log(user.name);
-  //prevent value to change unless setvalue,value change
-  // const value = useMemo(() => ({ user, setUser }), [user, setUser]);
-  // Meditation preface if not meditate
-
-  // console.log("dashboard user");
-  // console.log(user);
   //-------------------------//-------------------------//-------------------------//-------------------------
 
   //logout state?, bind
@@ -58,7 +47,7 @@ function App() {
   useEffect(() => {
     console.log("start of useEffect");
     const user = AuthService.getCurrentUser();
-    console.log(AuthService.getCurrentUser() + " is the user"); // current null
+    // console.log(AuthService.getCurrentUser() + " is the user"); // current null
     if (user) {
       console.log(user);
       setCurrentUser(user);
@@ -86,9 +75,9 @@ function App() {
             <Stats />
           </Route>
           {/*  */}
-          {/* <Route path="/Profile">
+          <Route path="/Profile">
             <Profile />
-          </Route> */}
+          </Route>
           <Route path="/Login">
             <Login />
           </Route>
