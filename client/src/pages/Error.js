@@ -6,8 +6,8 @@ const Error = () => {
     <>
       {/* <div className="languages-container"> */}
       <h1 className="title">bad link</h1>
-      <Link to="/" className="btn good-btn">
-        back home
+      <Link to="/">
+        <button className="loginProfileButton">go Back</button>
       </Link>
       {/* </div> */}
     </>

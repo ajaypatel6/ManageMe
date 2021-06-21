@@ -3,7 +3,7 @@ import logo from "./../images/rsz_logo.png";
 import { FaBars } from "react-icons/fa";
 
 import { links } from "./../data/data";
-import { UserContext } from "../UserContext";
+import AuthService from "../services/auth.service";
 
 const Header = () => {
   const [showLinks, setShowLinks] = useState(false);
@@ -12,13 +12,12 @@ const Header = () => {
   // const { user, setUser } = useContext(UserContext);
 
   // context to consume
-  const { user, setUser } = useContext(UserContext);
-  // console.log(user);
 
-  // null
-  // console.log("header log");
-  // console.log(user.name);
-  // console.log(user);
+  var user = AuthService.getCurrentUser();
+
+  if (user) {
+    const name = user.username;
+  }
 
   useEffect(() => {
     const linksHeight = linksRef.current.getBoundingClientRect().height;
@@ -57,7 +56,8 @@ const Header = () => {
               })}
             </ul>
           </div>
-          <h3>Track Yourself, {user.name}</h3>
+          {/* if user, then show username, else its guest */}
+          <h3>Track Yourself, {user ? user.username : "Guest"} </h3>
         </div>
       </nav>
     </>

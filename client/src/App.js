@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useContext, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 //-------------------------//-------------------------//-------------------------//-------------------------
@@ -22,7 +22,6 @@ import Tasks from "./components/Tasks";
 import MeditatePrompt from "./components/MeditatePrompt";
 import CoolInfo from "./components/CoolInfo";
 // the context to import, for consumption
-import { UserContext } from "./UserContext";
 
 // context
 // import { Provider } from "./Context";
@@ -36,21 +35,20 @@ function App() {
   //-------------------------//-------------------------//-------------------------//-------------------------
 
   //logout state?, bind
-  const [currentUser, setCurrentUser] = useState(undefined);
 
-  function logout() {
-    // is this right?
+  // function logout() {
+  //   // is this right?
 
-    currentUser = AuthService.logout;
-  }
+  //   currentUser = AuthService.logout;
+  // }
+
   // modeerator and admin board state?
   useEffect(() => {
     console.log("start of useEffect");
     const user = AuthService.getCurrentUser();
     // console.log(AuthService.getCurrentUser() + " is the user"); // current null
     if (user) {
-      console.log(user);
-      setCurrentUser(user);
+      console.log(user.username);
       // check mod
       // check admin
     }

@@ -1,10 +1,12 @@
 import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
-import { UserContext } from "../UserContext";
 import AuthService from "../services/auth.service";
 
 const Account = () => {
   // logout function
+
+  var user = AuthService.getCurrentUser();
+
   const logout = (event) => {
     console.log("test");
     AuthService.logout();
@@ -29,8 +31,21 @@ const Account = () => {
 
   return (
     <>
-      <h1>Logout</h1>
-      <button onClick={logout}>Logout</button>
+      <button onClick={logout} className="loginProfileButton">
+        Logout
+      </button>
+      <h3>
+        <u>Username: </u>
+        {user.username}
+      </h3>
+      <h3>
+        <u>City: </u>
+        {user.city}
+      </h3>
+      <h3>
+        <u>Email: </u>
+        {user.email}
+      </h3>
     </>
   );
 };

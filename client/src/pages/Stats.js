@@ -1,16 +1,19 @@
 import React, { useState, useContext } from "react";
 import { UserContext } from "../UserContext";
+import AuthService from "../services/auth.service";
 
 const Stats = () => {
   const [loading, setLoading] = useState(true);
-  const { user, setUser } = useContext(UserContext);
 
   // CHECK in logged in
-
+  const user = AuthService.getCurrentUser();
+  if (user) {
+    const name = user.username;
+  }
   console.log(user);
 
   if (loading) {
-    if (user.name !== "Guest") {
+    if (user) {
       setLoading(false);
     }
     return (

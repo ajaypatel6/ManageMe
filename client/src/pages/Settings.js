@@ -1,16 +1,18 @@
 import React, { useState, useContext } from "react";
 import { UserContext } from "../UserContext";
+import AuthService from "../services/auth.service";
 
 // combine with profile?
 const Settings = () => {
   //If not logged in, say to log in
   const [loading, setLoading] = useState(true);
   const { loggedIn, setLoggedIn } = useContext(UserContext);
+  const user = AuthService.getCurrentUser();
 
   // CHECK in logged in
 
   if (loading) {
-    if (loggedIn) {
+    if (user) {
       setLoading(false);
     }
     return (

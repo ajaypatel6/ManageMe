@@ -1,7 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Axios from "axios";
-import { UserContext } from "../UserContext";
 import AuthService from "../services/auth.service";
 
 const Login = () => {
