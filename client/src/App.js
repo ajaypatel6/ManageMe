@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 //-------------------------//-------------------------//-------------------------//-------------------------
 import AuthService from "./services/auth.service";
+// import "bootstrap/dist/css/bootstrap.min.css";
+
 //-------------------------//-------------------------//-------------------------//-------------------------
 
 //pages

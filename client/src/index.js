@@ -1,6 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
+// adding bootstrap
+import "bootstrap/dist/css/bootstrap.min.css";
+
 import "./index.css";
+
 import App from "./App";
 import { UserContext, UserProvider } from "./UserContext";
 
