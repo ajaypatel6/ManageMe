@@ -3,7 +3,7 @@ import axios from "axios";
 const API_URL = "http://localhost:3001/getWeather/";
 
 class DataService {
-  getWeather(username, city) {
+  getWeather(city) {
     return axios
       .get(API_URL + city, {
         city,
@@ -12,6 +12,7 @@ class DataService {
         // if (response.data.accessToken) {
         //   //   localStorage.setItem("user", JSON.stringify(response.data));
         // }
+        console.log(response.data + "is the response");
         return response.data;
       });
   }

@@ -4,16 +4,21 @@ import DataService from "../services/data.service";
 
 const CoolInfo = () => {
   const weatherKey = "18eda1685298ff0be778b9f349d22244";
+  const [city, setCity] = useState("");
+
+  const [weather, setWeather] = useState("");
 
   var user = AuthService.getCurrentUser();
-  var userCity = user.city;
   var currentWeather = DataService.getWeather();
 
   //useEffect for weather, on reload
   useEffect(() => {
     console.log("rendering");
-    var currentWeather = DataService.getWeather();
-    console.log(currentWeather);
+    setCity(user.city);
+
+    console.log("the city is " + city);
+    var currentWeather = DataService.getWeather(city);
+    console.log(currentWeather + " in the city of " + city);
   }, []);
 
   return (

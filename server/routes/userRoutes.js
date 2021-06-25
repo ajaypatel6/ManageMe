@@ -30,10 +30,14 @@ module.exports = function (app) {
     res.send("Request on city " + req.params.city);
   });
 
+  // works when you type the city
+  // read city from user, then send to this route to use
   app.get("/getWeather/:city", (req, res) => {
     const request = require("request");
     // console.log(req.params.city);
     // const city = "";
+    console.log(req.params.city);
+    console.log("yo");
     const API_URL =
       "http://api.weatherstack.com/current?access_key=18eda1685298ff0be778b9f349d22244&query=" +
       req.params.city;
