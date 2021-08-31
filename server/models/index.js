@@ -18,6 +18,10 @@ const sequelize = new Sequelize(config.DB, config.USER, config.PASSWORD, {
   },
 });
 
+sequelize.authenticate()
+  .then(()=> console.log('conected'))
+  .catch(err=>console.log('Err' + err))
+
 const db = {};
 
 db.Sequelize = Sequelize;

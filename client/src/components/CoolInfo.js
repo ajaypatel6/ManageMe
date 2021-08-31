@@ -14,11 +14,11 @@ const CoolInfo = () => {
   //useEffect for weather, on reload
   useEffect(() => {
     console.log("rendering");
-    setCity(user.city);
+    // setCity(user.city);
 
-    console.log("the city is " + city);
-    var currentWeather = DataService.getWeather(city);
-    console.log(currentWeather + " in the city of " + city);
+    // console.log("the city is " + city);
+    // var currentWeather = DataService.getWeather(city);
+    // console.log(currentWeather + " in the city of " + city);
   }, []);
 
   return (

@@ -30,10 +30,12 @@ const db = require("./models");
 const Role = db.role;
 // will be back
 
+console.log('pre seq')
 //****************** */
 //For production, just insert these rows manually and use sync() without parameters to avoid dropping data:
 db.sequelize.sync();
 //****************** */
+console.log('post seq')
 
 // for first time
 // db.sequelize.sync({ force: true }).then(() => {
