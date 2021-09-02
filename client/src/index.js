@@ -6,7 +6,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
 
 import App from "./App";
-import { UserContext, UserProvider } from "./UserContext";
+import { UserProvider } from "./UserContext";
+// import { UserContext, UserProvider } from "./UserContext";
+
 
 ReactDOM.render(
   <React.StrictMode>

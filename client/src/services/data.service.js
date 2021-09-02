@@ -12,7 +12,7 @@ class DataService {
         // if (response.data.accessToken) {
         //   //   localStorage.setItem("user", JSON.stringify(response.data));
         // }
-        console.log(response.data + "is the response");
+        console.log(JSON.stringify(response.data) + "is the response");
         return response.data;
       });
   }

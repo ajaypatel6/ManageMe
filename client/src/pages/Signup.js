@@ -1,6 +1,8 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
+// import React, { useState, useContext } from "react";
+
 import { Link } from "react-router-dom";
-import Axios from "axios";
+// import Axios from "axios";
 // import SignupForm from "../components/SignupForm";
 // import { Actions } from "../Actions";
 // import { UserContext } from "../UserContext";
@@ -20,7 +22,7 @@ const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const [loggedIn, setLoggedIn] = useState(false);
+  // const [loggedIn, setLoggedIn] = useState(false);
   const [message, setMessage] = useState("");
   const [successful, setSuccesful] = useState(false);
 

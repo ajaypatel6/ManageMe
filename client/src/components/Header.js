@@ -1,4 +1,6 @@
-import React, { useState, useRef, useEffect, useContext } from "react";
+import React, { useState, useRef, useEffect } from "react";
+// import React, { useState, useRef, useEffect, useContext } from "react";
+
 import logo from "./../images/rsz_logo.png";
 import { FaBars } from "react-icons/fa";
 
@@ -15,9 +17,9 @@ const Header = () => {
 
   var user = AuthService.getCurrentUser();
 
-  if (user) {
-    const name = user.username;
-  }
+  // if (user) {
+  //   const name = user.username; NOT USED RN
+  // }
 
   useEffect(() => {
     const linksHeight = linksRef.current.getBoundingClientRect().height;

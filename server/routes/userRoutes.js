@@ -51,7 +51,9 @@ module.exports = function (app) {
         console.log("body:", body); // Print the HTML for the Google homepage.
         //new stff
         var parsedBody = JSON.parse(body);
-        var temp_c = parsedBody["current"]["temperature"];
+        // var temp_c = parsedBody["current"]["temperature"];
+        var temp_c = 20;
+
         //   res.send(body);
         res.send({ temp_c }); // use {var} for specific?
       }

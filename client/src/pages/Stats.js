@@ -1,5 +1,7 @@
-import React, { useState, useContext } from "react";
-import { UserContext } from "../UserContext";
+import React, { useState } from "react";
+// import React, { useState, useContext } from "react";
+
+// import { UserContext } from "../UserContext";
 import AuthService from "../services/auth.service";
 
 const Stats = () => {
@@ -8,7 +10,7 @@ const Stats = () => {
   // CHECK in logged in
   const user = AuthService.getCurrentUser();
   if (user) {
-    const name = user.username;
+    // const name = user.username;
   }
   console.log(user);
 

@@ -1,16 +1,18 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useEffect } from "react";
+// import React, { useState, useContext, useEffect } from "react";
+
 import { Link } from "react-router-dom";
-import Axios from "axios";
+// import Axios from "axios";
 import AuthService from "../services/auth.service";
 
 const Login = () => {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
 
-  var [loggedIn, setLoggedIn] = useState(false);
+  // var [loggedIn, setLoggedIn] = useState(false);
 
-  const [message, setMessage] = useState("");
-  const [successful, setSuccesful] = useState(false);
+  // const [message, setMessage] = useState("");
+  // const [successful, setSuccesful] = useState(false);
 
   //useEffect for user?
   // side effect, when something happens..
@@ -20,13 +22,13 @@ const Login = () => {
 
   // context for the entire site
   // refreshing put name not satying
-  if (loggedIn) {
-    // once on account, the name goes back to guest
-    // window.location = "/Account";
-    // remove login
-    // remove register
-    // add logout
-  }
+  // if (loggedIn) {
+  //   // once on account, the name goes back to guest
+  //   // window.location = "/Account";
+  //   // remove login
+  //   // remove register
+  //   // add logout
+  // }
 
   // if (user) {
   //   return (
@@ -42,21 +44,21 @@ const Login = () => {
       (response) => {
         console.log(response.username);
         // setMessage(response.data.message);
-        setSuccesful(true);
+        // setSuccesful(true);
         // response.render("/profile");
         // window.location.reload();
         window.location = "/Account";
         // console.log(message);
       },
       (error) => {
-        const resMessage =
-          (error.response &&
-            error.response.data &&
-            error.response.data.message) ||
-          error.message ||
-          error.toString();
-        setMessage(resMessage);
-        setSuccesful(false);
+        // const resMessage =
+        //   (error.response &&
+        //     error.response.data &&
+        //     error.response.data.message) ||
+        //   error.message ||
+        //   error.toString();
+        // setMessage(resMessage);
+        // setSuccesful(false);
       }
     );
   };
