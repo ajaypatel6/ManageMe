@@ -1,0 +1,8 @@
+manageme problems
+
+1. ErrSequelizeConnectionError: Access denied for user 'ajay'@'localhost' to database 'manageme'
+FIXED FOR NOW
+- FIX
+priveleges on phpmyadmin and changin ports for apache and mysql
+
+2. 
