@@ -12,7 +12,7 @@ const Stats = () => {
   if (user) {
     // const name = user.username;
   }
-  console.log(user);
+  // console.log(user);
 
   if (loading) {
     if (user) {

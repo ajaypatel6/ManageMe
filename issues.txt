@@ -5,4 +5,4 @@ FIXED FOR NOW
 - FIX
 priveleges on phpmyadmin and changin ports for apache and mysql
 
-2. 
+2. VM2532:1 GET http://localhost:3001/getWeather/ 404 (Not Found)

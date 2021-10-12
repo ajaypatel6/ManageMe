@@ -52,7 +52,7 @@ function App() {
     const user = AuthService.getCurrentUser();
     // console.log(AuthService.getCurrentUser() + " is the user"); // current null
     if (user) {
-      console.log(user.username);
+      console.log("There is a user");
       // check mod
       // check admin
     }
