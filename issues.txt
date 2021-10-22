@@ -1,4 +1,5 @@
-manageme problems
+manageme problemsC:\Users\Yandh\Desktop\Node\ManageMe\client\src\App.js
+C:\Users\Yandh\Desktop\Node\ManageMe\client\src\pages\Profile.js
 
 1. ErrSequelizeConnectionError: Access denied for user 'ajay'@'localhost' to database 'manageme'
 FIXED FOR NOW

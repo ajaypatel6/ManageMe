@@ -9,7 +9,8 @@ import AuthService from "./services/auth.service";
 
 //-------------------------//-------------------------//-------------------------//-------------------------
 
-//pages
+//
+
 import Error from "./pages/Error";
 import Stats from "./pages/Stats";
 import Profile from "./pages/Profile";
