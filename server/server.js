@@ -33,7 +33,11 @@ const Role = db.role;
 console.log('pre seq')
 //****************** */
 //For production, just insert these rows manually and use sync() without parameters to avoid dropping data:
-db.sequelize.sync();
+
+// what this
+// db.sequelize.sync();
+
+
 //****************** */
 console.log('post seq')
 
@@ -43,24 +47,6 @@ console.log('post seq')
 //   initial();
 // });
 
-//creates 3 new rows in database
-function initial() {
-  Role.create({
-    id: 1,
-    name: "user",
-  });
-
-  Role.create({
-    id: 2,
-    name: "moderator",
-  });
-
-  Role.create({
-    id: 3,
-    name: "admin",
-  });
-}
-// ------------------------------------------------------------------------------------------------------------
 // Routes
 
 app.get("/", (req, res) => {

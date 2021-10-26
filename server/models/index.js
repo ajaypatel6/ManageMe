@@ -4,11 +4,16 @@
 const config = require("../config/dbConfig.js");
 
 const Sequelize = require("sequelize");
+let mysql = require('mysql');
 
 //test
+
+console.log("pre conn");
 const sequelize = new Sequelize(config.DB, config.USER, config.PASSWORD, {
   host: config.HOST,
   dialect: config.dialect,
+  port: 4306,
+
   // operatorsAliases: false, // deprecated?
 
   pool: {
@@ -19,11 +24,25 @@ const sequelize = new Sequelize(config.DB, config.USER, config.PASSWORD, {
   },
 });
 
+console.log("post conn");
+
+
 sequelize.authenticate()
   .then(()=> console.log('conected'))
   .catch(err=>console.log('Err' + err))
 
-const db = {};
+  console.log("post auth");
+
+
+const db = {    
+  // dont htink u need this
+  // dialect: 'mysql',
+  // database: 'manageme',
+  // username: 'ajay',
+  // password: '',
+  // host: 'localhost',  
+  // port: 3306
+};
 
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
