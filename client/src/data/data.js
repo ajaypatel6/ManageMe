@@ -6,14 +6,14 @@ export const links = [
   },
   {
     id: 2,
+    url: "/notes",
+    text: "notes",
+  },
+  {
+    id: 3,
     url: "/stats",
     text: "stats",
   },
-  // {
-  //   id: 3,
-  //   url: "/Login",
-  //   text: "Login",
-  // },
   // {
   //   id: 4,
   //   url: "/Signup",

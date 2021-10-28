@@ -19,6 +19,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 // import Meditate from "./pages/Meditate";
 import Account from "./pages/Account";
+import Notes from "./pages/Notes";
 
 //components
 import Header from "./components/Header";
@@ -80,6 +81,9 @@ function App() {
           {/*  */}
           <Route path="/Profile">
             <Profile />
+          </Route>
+          <Route path="/Notes">
+            <Notes />
           </Route>
           <Route path="/Login">
             <Login />
