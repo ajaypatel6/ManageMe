@@ -35,8 +35,8 @@ console.log('pre seq')
 //For production, just insert these rows manually and use sync() without parameters to avoid dropping data:
 
 // what this
-// db.sequelize.sync();
-
+// NEED this
+db.sequelize.sync();
 
 //****************** */
 console.log('post seq')

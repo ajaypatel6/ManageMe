@@ -24,6 +24,7 @@ verifyToken = (req, res, next) => {
   });
 };
 
+// REMOVE THIS SHIT
 isAdmin = (req, res, next) => {
   User.findByPk(req.userId).then((user) => {
     user.getRoles().then((roles) => {

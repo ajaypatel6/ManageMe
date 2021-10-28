@@ -32,6 +32,8 @@ module.exports = function (app) {
 
   // works when you type the city
   // read city from user, then send to this route to use
+
+  // get the weather out
   app.get("/getWeather/:city", (req, res) => {
     const request = require("request");
     // console.log(req.params.city);
@@ -52,7 +54,7 @@ module.exports = function (app) {
         //new stff
         var parsedBody = JSON.parse(body);
         // var temp_c = parsedBody["current"]["temperature"];
-        var temp_c = 20;
+        var temp_c = 201;
 
         //   res.send(body);
         res.send({ temp_c }); // use {var} for specific?

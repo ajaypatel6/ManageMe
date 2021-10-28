@@ -14,9 +14,9 @@ https://www.youtube.com/watch?v=M09nsCa4_Bk
 FIX?
 - remake the privlege and put port in all locations?
 
-
 3. ErrSequelizeConnectionRefusedError: connect ECONNREFUSED 127.0.0.1:4306
 - not connected 2 sql 
+- fixed, removed commen
 
-3. VM2532:1 GET http://localhost:3001/getWeather/ 404 (Not Found)
+4. VM2532:1 GET http://localhost:3001/getWeather/ 404 (Not Found)
 
