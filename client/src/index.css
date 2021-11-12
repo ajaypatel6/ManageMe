@@ -147,12 +147,26 @@ nav {
 .loginButton {
   background-color: #0075fa;
   width: 100%;
-  color: rgb(0, 247, 255);
+  color: rgb(255, 102, 0);
   padding: 15px;
   margin: 10px 0px;
-  border: none;
+  border:rgba(0, 0, 0, 0.2);
   cursor: pointer;
 }
+
+.meditateButton {
+  margin: 0 auto;
+  display: block;
+  font-size: 1rem;
+  text-transform: capitalize;
+  padding: 1rem 2rem;
+  border-radius: 0.25rem;
+  margin-top: 2%;
+  margin-bottom: 5%;
+  background: #26e465;
+  color: black;
+}
+
 form {
   border: 3px solid #f1f1f1;
 }
@@ -209,4 +223,8 @@ button:hover {
   text-align: center;
   font-size: 1.5rem;
   color: rgb(1, 182, 195);
+}
+
+.timeLeft{
+  visibility: hidden;
 }
