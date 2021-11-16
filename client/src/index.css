@@ -226,5 +226,13 @@ button:hover {
 }
 
 .timeLeft{
-  visibility: hidden;
+  visibility: visible;
 }
+
+
+.time {
+  font-size: 3rem;
+  padding: 2rem;
+  text-align: center;
+}
+/* Time shi */
