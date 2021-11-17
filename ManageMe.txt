@@ -40,3 +40,7 @@ Profile
 Settings
 - Color?
 - Custom? later.. should be barely anything here 
+
+https://upmostly.com/tutorials/build-a-react-timer-component-using-hooks
+play some sort of sound on button click
+https://dev.to/daveguz97/adding-sound-to-a-react-project-51m3

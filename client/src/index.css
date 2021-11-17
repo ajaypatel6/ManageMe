@@ -236,3 +236,11 @@ button:hover {
   text-align: center;
 }
 /* Time shi */
+
+.timer {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+}
