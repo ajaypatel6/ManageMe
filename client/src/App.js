@@ -26,7 +26,9 @@ import Header from "./components/Header";
 import TaskTimer from "./components/TaskTimer";
 import Tasks from "./components/Tasks";
 import CoolInfo from "./components/CoolInfo";
-import MeditationTime from "./components/MeditationTime";
+import Meditation from "./components/Meditation";
+import MeditationTimer from "./components/MeditationTimer";
+
 // the context to import, for consumption
 
 // context
@@ -70,7 +72,7 @@ function App() {
         <Switch>
           <Route exact path="/">
             {/* home page? */}
-            <MeditationTime />
+            <Meditation />
             <TaskTimer />
             <Tasks />
             <CoolInfo />

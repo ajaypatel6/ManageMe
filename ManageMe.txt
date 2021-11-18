@@ -43,4 +43,11 @@ Settings
 
 https://upmostly.com/tutorials/build-a-react-timer-component-using-hooks
 play some sort of sound on button click
+
 https://dev.to/daveguz97/adding-sound-to-a-react-project-51m3
+https://stackoverflow.com/questions/55054457/react-sound-doesnt-play-mp3-files-from-a-project-folder
+this worked omegalols
+
+gradient between dashboard areas
+- better ui
+- on full window, the margin shit, redo at end
