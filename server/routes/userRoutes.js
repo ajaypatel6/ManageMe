@@ -1,5 +1,6 @@
 // DONE
 const { authJwt } = require("../middleware");
+
 const controller = require("../controllers/userController");
 
 module.exports = function (app) {
@@ -61,6 +62,14 @@ module.exports = function (app) {
       }
     );
   });
+
+  app.post(
+    "/api/meditation/saveMeditation",
+    [
+      // verification
+    ],
+    controller.saveMeditation
+  )
 
   // useless
   // app.get("/api/test/user", [authJwt.verifyToken], controller.userBoard);

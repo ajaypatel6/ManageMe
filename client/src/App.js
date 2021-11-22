@@ -27,7 +27,6 @@ import TaskTimer from "./components/TaskTimer";
 import Tasks from "./components/Tasks";
 import CoolInfo from "./components/CoolInfo";
 import Meditation from "./components/Meditation";
-import MeditationTimer from "./components/MeditationTimer";
 
 // the context to import, for consumption
 
@@ -50,13 +49,17 @@ function App() {
   //   currentUser = AuthService.logout;
   // }
 
+  //remove sound logs 
+  window.soundManager.setup({debugMode: false});
+
+
   // modeerator and admin board state?
   useEffect(() => {
-    console.log("start of useEffect");
+    // console.log("start of useEffect");
     const user = AuthService.getCurrentUser();
     // console.log(AuthService.getCurrentUser() + " is the user"); // current null
     if (user) {
-      console.log("There is a user");
+      // console.log("There is a user");
       // check mod
       // check admin
     }

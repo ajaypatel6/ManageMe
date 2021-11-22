@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 // import AuthService from "../services/auth.service";
-import DataService from "../services/data.service";
+// import DataService from "../services/data.service";
 import AuthService from "../services/auth.service";
 
 const CoolInfo = () => {
@@ -10,21 +10,23 @@ const CoolInfo = () => {
 
   // const [weather, setWeather] = useState("");
 
+  // not working 
   var user = AuthService.getCurrentUser();
-  // var currentWeather = DataService.getWeather(city);
 
   //useEffect for weather, on reload
   useEffect(() => {
-    console.log("rendering");
+    // console.log("rendering");
     if(user){
     const user = AuthService.getCurrentUser();
 
     setCity(user.city);
 
-    var currentWeather = DataService.getWeather(city);
-    console.log(JSON.stringify(currentWeather) + " in the city of " + city);
+    // var currentWeather = DataService.getWeather(city);
+    // how to parse the body?********
+    // this is a promise
+    // console.log(currentWeather + " in the city of " + city);
     }
-  }, [city]); //?? remove or update on city change? shouldnt tho
+  }, [city,user]); //?? remove or update on city change? shouldnt tho
 
   if (loading) {
     if (user) {

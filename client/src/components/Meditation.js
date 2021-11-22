@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 // import React, { useState, useContext, useEffect } from "react";
 import MeditationTimer from "./MeditationTimer";
 
-import { Link } from "react-router-dom";
 
 const Meditation = () => {
   const [meditationOn, setMeditationOn] = useState(false);
