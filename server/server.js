@@ -29,7 +29,6 @@ const weatherKey = "18eda1685298ff0be778b9f349d22244";
 const db = require("./models");
 // will be back
 
-console.log('pre seq')
 //****************** */
 //For production, just insert these rows manually and use sync() without parameters to avoid dropping data:
 
@@ -38,7 +37,6 @@ console.log('pre seq')
 db.sequelize.sync();
 
 //****************** */
-console.log('post seq')
 
 // for first time
 // db.sequelize.sync({ force: true }).then(() => {

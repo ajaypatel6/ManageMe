@@ -14,6 +14,8 @@ class DataService {
         // }
         // console.log(JSON.stringify(response.data) + " is the response");
         // console.log(JSON.stringify(response.data))
+        console.log(response);
+        console.log(response.data)
         return response.data;
       });
   }

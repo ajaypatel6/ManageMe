@@ -1,4 +1,3 @@
-// DONE
 // where the controller goes to do stuff with db
 // get the db config from configuration
 const config = require("../config/dbConfig.js");
@@ -8,7 +7,6 @@ let mysql = require('mysql');
 
 //test
 
-console.log("pre conn");
 const sequelize = new Sequelize(config.DB, config.USER, config.PASSWORD, {
   host: config.HOST,
   dialect: config.dialect,
@@ -24,7 +22,6 @@ const sequelize = new Sequelize(config.DB, config.USER, config.PASSWORD, {
   },
 });
 
-console.log("post conn");
 
 
 sequelize.authenticate()

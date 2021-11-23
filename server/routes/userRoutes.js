@@ -49,17 +49,22 @@ module.exports = function (app) {
       // "http://api.weatherstack.com/current?access_key=18eda1685298ff0be778b9f349d22244&query=Hamilton",
       API_URL,
       function (error, response, body) {
+        //ERROR check
         console.error("error:", error); // Print the error if one occurred
         console.log("statusCode:", response && response.statusCode); // Print the respons e status code if a response was received
         console.log("body:", body); // Print the HTML for the Google homepage.
         //new stff
         var parsedBody = JSON.parse(body);
-        // var temp_c = parsedBody["current"]["temperature"];
-        var temp_c = 201;
+        //wait this works?
+        var temp_c = parsedBody["current"]["temperature"];
+
+        //where is the TEMPERATUER!!!!!!!!!!!!!!!!!!!!!!!!!!
+        // var temp_c = 20;
 
         //   res.send(body);
         res.send({ temp_c }); // use {var} for specific?
       }
+      // NEED ERROR CHECK
     );
   });
 
