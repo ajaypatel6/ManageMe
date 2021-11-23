@@ -35,6 +35,7 @@ const Signup = () => {
       (response) => {
         setMessage(response.data.message);
         setSuccesful(true);
+        alert('account created');
         console.log(message);
         window.location = "/Account";
       },

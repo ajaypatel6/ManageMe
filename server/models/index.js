@@ -48,21 +48,6 @@ db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
 db.user = require("../models/userModel")(sequelize, Sequelize);
-db.role = require("../models/roleModel")(sequelize, Sequelize);
 db.meditation = require("../models/meditationModel")(sequelize, Sequelize);
 
-// THIS SHIT??
-db.role.belongsToMany(db.user, {
-  through: "user_roles",
-  foreignKey: "roleId",
-  otherKey: "userId",
-});
-db.user.belongsToMany(db.role, {
-  through: "user_roles",
-  foreignKey: "userId",
-  otherKey: "roleId",
-});
-
-// ??
-db.ROLES = ["user", "admin", "moderator"];
 module.exports = db;

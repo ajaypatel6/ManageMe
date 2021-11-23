@@ -27,7 +27,6 @@ const weatherKey = "18eda1685298ff0be778b9f349d22244";
 // ------------------------------------------------------------------------------------------------------------
 // creates tables? force:true will drop the table if it already exists..?
 const db = require("./models");
-const Role = db.role;
 // will be back
 
 console.log('pre seq')

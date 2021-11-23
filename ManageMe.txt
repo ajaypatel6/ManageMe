@@ -57,27 +57,7 @@ gradient between dashboard areas
 Executing (default): INSERT INTO `meditations` (`id`,`email`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?);
 
 // From creating new user, account is being made but there is an erro 
-Executing (default): SELECT `id`, `username`, `email`, `password`, `city`, `createdAt`, `updatedAt` FROM `users` AS `users` WHERE `users`.`username` = 'Jack' LIMIT 1;
-Executing (default): SELECT `id`, `username`, `email`, `password`, `city`, `createdAt`, `updatedAt` FROM `users` AS `users` WHERE `users`.`email` = 'Jack@gmail.com' LIMIT 1;
-Executing (default): INSERT INTO `users` (`id`,`username`,`email`,`password`,`city`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?);
-Executing (default): SELECT `createdAt`, `updatedAt`, `roleId`, `userId` FROM `user_roles` AS `user_roles` WHERE `user_roles`.`userId` = 17;
-Executing (default): INSERT INTO `user_roles` (`createdAt`,`updatedAt`,`roleId`,`userId`) VALUES ('2021-11-22 22:18:21','2021-11-22 22:18:21',1,17);
-(node:12916) UnhandledPromiseRejectionWarning: SequelizeForeignKeyConstraintError: Cannot add or update a child row: a foreign key constraint fails (`manageme`.`user_roles`, CONSTRAINT `user_roles_ibfk_1` FOREIGN KEY (`roleId`) 
-REFERENCES `roles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE)
-    at Query.formatError (C:\Users\Yandh\Desktop\Node\ManageMe\server\node_modules\sequelize\lib\dialects\mysql\query.js:254:16)
-    at Query.run (C:\Users\Yandh\Desktop\Node\ManageMe\server\node_modules\sequelize\lib\dialects\mysql\query.js:77:18)
-    at processTicksAndRejections (internal/process/task_queues.js:95:5)
-    at async C:\Users\Yandh\Desktop\Node\ManageMe\server\node_modules\sequelize\lib\sequelize.js:619:16
-    at async MySQLQueryInterface.bulkInsert (C:\Users\Yandh\Desktop\Node\ManageMe\server\node_modules\sequelize\lib\dialects\abstract\query-interface.js:833:21)
-    at async recursiveBulkCreate (C:\Users\Yandh\Desktop\Node\ManageMe\server\node_modules\sequelize\lib\model.js:2698:25)
-    at async Function.bulkCreate (C:\Users\Yandh\Desktop\Node\ManageMe\server\node_modules\sequelize\lib\model.js:2824:12)
-    at async Promise.all (index 0)
-    at async BelongsToMany.set (C:\Users\Yandh\Desktop\Node\ManageMe\server\node_modules\sequelize\lib\associations\belongs-to-many.js:646:14)
-(Use `node --trace-warnings ...` to show where the warning was created)
-(node:12916) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` 
-(see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 1)
-(node:12916) [DEP0018] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
-Executing (default): SELECT `id`, `username`, `email`, `password`, `city`, `createdAt`, `updatedAt` FROM `users` AS `users` WHERE `users`.`username` = 'Jack' LIMIT 1;
+
 
 POST http://localhost:3001/api/auth/signup 400 (Bad Request)
 // works but no redirect
