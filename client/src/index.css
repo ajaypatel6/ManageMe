@@ -150,7 +150,7 @@ nav {
   color: rgb(255, 102, 0);
   padding: 15px;
   margin: 10px 0px;
-  border:rgba(0, 0, 0, 0.2);
+  border: rgba(0, 0, 0, 0.2);
   cursor: pointer;
 }
 
@@ -219,16 +219,15 @@ button:hover {
 }
 
 .CoolInfo {
-  padding: 10rem;
+  padding: 2rem;
   text-align: center;
   font-size: 1.5rem;
   color: rgb(1, 182, 195);
 }
 
-.timeLeft{
+.timeLeft {
   visibility: visible;
 }
-
 
 .time {
   font-size: 3rem;
@@ -246,12 +245,12 @@ button:hover {
   color: white;
 }
 
-.meditationToggleButton{
+.meditationToggleButton {
   margin: 0 auto;
   display: block;
   font-size: 2rem;
   margin-top: 1.5rem;
-  margin-bottom: 10rem;
+  margin-bottom: 3rem;
   text-transform: capitalize;
   padding: 0.1rem 0.2rem;
   border-radius: 1rem;
@@ -260,7 +259,7 @@ button:hover {
   color: rgb(9, 121, 18);
 }
 
-.saveMeditateButton{
+.saveMeditateButton {
   margin: 0 auto;
   display: block;
   font-size: 1rem;
@@ -271,4 +270,154 @@ button:hover {
   margin-bottom: 5%;
   background: #0da766;
   color: black;
+}
+/* Tasklist */
+.section-center {
+  background: rgba(214, 241, 253, 0.74);
+  border-radius: 1rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s linear;
+  margin-left: 6rem;
+  margin-right: 6rem;
+  padding: 2rem;
+}
+
+.section-center:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.form-control {
+  background-color: #eeeeee;
+  display: flex;
+}
+.task {
+  padding: 0.25rem;
+  padding-left: 1.5rem;
+  background: rgb(238, 238, 238);
+  display: flex;
+
+  border-color: transparent;
+  font-size: 1.5rem;
+  color: rgb(0, 0, 0);
+
+  width: 100%;
+  padding: 12px 20px;
+  display: inline-block;
+  border: 2px solid #60dbfb;
+  box-sizing: border-box;
+}
+.taskLength {
+  background: rgb(238, 238, 238);
+  border-color: transparent;
+  padding: 12px 20px;
+  text-align: center;
+  font-size: 1.2rem;
+  color: rgb(0, 0, 0);
+  border: 2px solid #60dbfb;
+  box-sizing: border-box;
+}
+.submit-btn {
+  background: hsl(205, 86%, 81%);
+  border-color: transparent;
+  padding: 0.25rem;
+  text-transform: capitalize;
+  letter-spacing: 3px;
+  cursor: pointer;
+  content: hsl(205, 78%, 60%);
+  transition: all 0.3s linear;
+  font-size: 1.5rem;
+  margin: 0 auto;
+  display: block;
+}
+.submit-btn:hover {
+  background: hsl(205, 78%, 60%);
+  color: white;
+}
+
+.task-container {
+  margin-top: 2rem;
+  /* background-color: rgba(192, 231, 248, 0.74); */
+
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 5rem;
+  border: rgba(0, 0, 0, 0.2);
+  transition: all 0.3s linear;
+  border-radius: 0.25rem;
+  text-transform: capitalize;
+  border-color: rgba(192, 216, 248, 0.74);
+  border-width:0.2rem;
+  border-style: solid;
+}
+.task-item:hover {
+  color: hsl(210, 22%, 49%);
+  background: hsl(210, 36%, 96%);
+}
+.task-item:hover .title {
+  color: hsl(210, 22%, 49%);
+}
+.title {
+  margin-bottom: 0;
+  color: hsl(209, 61%, 16%);
+  letter-spacing: 2px;
+  transition: all 0.3s linear;
+  font-size: 2rem;
+  
+}
+.length {
+  margin-bottom: 0;
+  color: hsl(209, 61%, 16%);
+  letter-spacing: 2px;
+  transition: all 0.3s linear;
+  font-size: 2rem;
+}
+.edit-btn,
+.delete-btn,
+.save-btn {
+  background: transparent;
+  border-color: transparent;
+  cursor: pointer;
+  font-size: 1.5rem;
+  margin: 0 0.15rem;
+  transition: all 0.3s linear;
+}
+.edit-btn {
+  color: orange;
+}
+.edit-btn:hover {
+  color: orangered;
+}
+.delete-btn {
+  color: rgb(255, 0, 0);
+}
+.delete-btn:hover {
+  color: rgb(148, 3, 3);
+}
+.save-btn {
+  color: rgb(72, 243, 143);
+}
+.save-btn:hover {
+  color: rgb(0, 255, 85);
+}
+.clear-btn {
+  text-transform: capitalize;
+  width: 10rem;
+  height: 1.5rem;
+  display: grid;
+  align-items: center;
+  background: rgb(250, 205, 205);
+  color: rgb(218, 0, 0);
+  margin: 0 auto;
+  font-size: 0.85rem;
+  letter-spacing: 0.1rem;
+  cursor: pointer;
+  transition: all 0.3s linear;
+  margin-top: 1.25rem;
+}
+.clear-btn:hover {
+  color: rgb(105, 0, 0);
 }
