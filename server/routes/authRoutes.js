@@ -23,4 +23,10 @@ module.exports = function (app) {
   app.post("/api/auth/signin", controller.signin);
 
   
+  app.get("/api/auth/test", function (req, res, next) {
+    // var city = req.params.city;
+    // console.log("The city: " + city);
+    res.send("this is test");
+  });
+  
 };

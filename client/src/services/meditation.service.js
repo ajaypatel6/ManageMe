@@ -20,6 +20,20 @@ class MeditationService {
         return response.data;
       });
   }
+
+  getMeditation(email, meditation_length ) {
+    return axios
+      .get(API_URL + meditation_length, {
+        email,
+        meditation_length,
+      })
+      .then((response) => {
+
+        console.log(response);
+        console.log(response.data)
+        return response.data;
+      });
+  }
 }
 
 export default new MeditationService();

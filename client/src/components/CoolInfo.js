@@ -23,7 +23,8 @@ const CoolInfo = () => {
     setCity(user.city);
 
     console.log(city);
-    var currentWeather = DataService.getWeather(city);
+    // var currentWeather = DataService.getWeather(city);
+    
     // how to parse the body?********
     // this is a promise
     // console.log(currentWeather + " in the city of " + city);
