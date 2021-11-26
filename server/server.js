@@ -46,6 +46,31 @@ db.sequelize.sync();
 
 // Routes
 
+
+// THIS WORKS!!!!!!!!!!!!!!!!!!!!!!!!!
+// this doesnt work when its in the userroutes?
+app.get("/example", (req,res)=>{
+  res.json(req.query);
+});
+
+const controller = require("../server/controllers/userController");
+
+// // not working
+// app.post("/api/meditation/saveMeditation",  (req,res)=>{
+//   [
+//     // verification
+//   ],
+
+//   //dont use?
+//   // res.status(500).send("ERROR_SERVER"); // send something to client
+  
+//   // this crashes?
+//   // res.send("this is test");
+
+//   controller.saveMeditation;
+//   // next();
+// })
+
 app.get("/", (req, res) => {
   res.json({ message: "Welcome " });
 });

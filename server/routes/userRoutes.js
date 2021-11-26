@@ -13,6 +13,12 @@ module.exports = function (app) {
   });
 
   // app.get("/api/test/all", controller.allAccess);
+  
+  // Why the F is this working?
+  // app.get("/example", (req,res)=>{
+  //   res.json(req.query);
+  // });
+
 
   app.get("/city", function (req, res, next) {
     // var city = req.params.city;
@@ -69,6 +75,22 @@ module.exports = function (app) {
   //     // NEED ERROR CHECK
   //   );
   // });
+
+  // WHY ASYNC
+  app.post("/api/meditation/saveMeditation",  (req,res)=>{
+    [
+      // verification
+    ],
+
+    //dont use?
+    // res.status(500).send("ERROR_SERVER"); // send something to client
+    
+    // this crashes?
+    // res.send("this is test");
+
+    controller.saveMeditation;
+    // next();
+  })
 
   app.post("/api/meditation/getMeditation", async (req,res)=>{
     [

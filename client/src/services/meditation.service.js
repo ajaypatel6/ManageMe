@@ -1,14 +1,16 @@
 import axios from "axios";
 
 // tentative
-const API_URL = "http://localhost:3001/api/meditation/";
-
+const API_URL = "http://localhost:3001/api/meditation";
+///api/meditation/saveMeditation
 class MeditationService {
   saveMeditation(email,seconds) {
     return axios
-    .post(API_URL + "saveMeditation", {
+    .post(API_URL + "/saveMeditation", {
       email,
       seconds,
+      // email: email,
+      // meditation_length: seconds,
     })
       .then((response) => {
         // if (response.data.accessToken) {

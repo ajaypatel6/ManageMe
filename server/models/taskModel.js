@@ -1,9 +1,6 @@
 //DONE
 module.exports = (sequelize, Sequelize) => {
     const Task = sequelize.define("tasks", {
-      task_id: {
-        type: Sequelize.INTEGER,
-      },
       task_length: {
         type: Sequelize.INTEGER,
       },

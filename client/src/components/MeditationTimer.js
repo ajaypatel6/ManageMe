@@ -11,24 +11,27 @@ import MeditationService from "../services/meditation.service";
 const MeditationTimer = () => {
   const [seconds, setSeconds] = useState(0);
   const [isActive, setIsActive] = useState(false);
-
+  const [currentSeconds, setCurrentSeconds] = useState(0);
   //
+  const [email, setEmail] = useState("");
+
   const [playSound, setPlaySound] = useState(0);
 
   var user = AuthService.getCurrentUser();
 
   // console.log(user.email);
-  var email = user.email;
-  var currentSeconds = 0;
+  // if (user) {
+  //   setEmail(user.email);
+  // }
   // For user with specific id, create new meditation entry and save the seconds..
   // meditation id(+1) , meditition length (/60 for mins), email?
 
   const saveMeditation = (e) => {
     e.preventDefault();
-    reset();
-    alert('meditation saved');
-
     // DataService?
+    setEmail(user.email);
+
+    setCurrentSeconds(seconds);
     MeditationService.saveMeditation(email, currentSeconds).then(
       (response) => {
         console.log(response.email);
@@ -36,6 +39,10 @@ const MeditationTimer = () => {
         // setSuccesful(true);
         // response.render("/profile");
         // window.location.reload();
+        console.log("saved");
+
+        reset();
+
         window.location = "/Dashboard";
         // console.log(message);
       },
@@ -57,15 +64,16 @@ const MeditationTimer = () => {
   }
 
   function reset() {
-    currentSeconds = seconds;
-    console.log(currentSeconds);
+    console.log("med reset");
+    // currentSeconds = seconds;
     setSeconds(0);
     setIsActive(false);
   }
 
   useEffect(() => {
-    window.soundManager.setup({debugMode: false});
-
+    window.soundManager.setup({ debugMode: false });
+    console.log(email);
+    console.log(currentSeconds);
     let interval = null;
     if (isActive) {
       interval = setInterval(() => {
@@ -97,7 +105,9 @@ const MeditationTimer = () => {
             {isActive ? "Pause Meditation" : "Start Meditation"}
           </button>
           {/* diff color obs , save and redirect to dashboard*/}
-          <button className="saveMeditateButton" onClick={saveMeditation}>Save Meditation</button>
+          <button className="saveMeditateButton" onClick={saveMeditation}>
+            Save Meditation
+          </button>
           <button className="button" onClick={reset}>
             Reset
           </button>

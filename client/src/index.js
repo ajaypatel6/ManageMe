@@ -9,7 +9,6 @@ import App from "./App";
 import { UserProvider } from "./UserContext";
 // import { UserContext, UserProvider } from "./UserContext";
 
-
 ReactDOM.render(
   <React.StrictMode>
     <UserProvider>

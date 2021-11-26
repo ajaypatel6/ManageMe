@@ -11,8 +11,9 @@ const getLocalStorage = () => {
 };
 
 const Tasks = () => {
-  const [name, setName] = useState("");
+  const [title, setTitle] = useState("");
   const [length, setLength] = useState("");
+  const [category, setCategory] = useState("");
 
   const [list, setList] = useState(getLocalStorage());
   const [isEditing, setIsEditing] = useState(false);
@@ -20,28 +21,37 @@ const Tasks = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!name) {
-      alert('enter info')
-    } else if(isNaN(length)) {
-      alert('not a number');
-    } else if (name && isEditing) {
+    if(!title){
+      alert('enter description')
+    }
+    
+    if (!category) {
+      alert('enter cat')
+    } else if (isNaN(length)) {
+      alert("not a number");
+    } else if (title && isEditing) {
       setList(
         list.map((item) => {
           if (item.id === editID) {
-            return { ...item, title: name };
+            return { ...item, title: title };
           }
           return item;
         })
       );
-      setName("");
+      // setTitle("");
       setEditID(null);
       setIsEditing(false);
     } else {
-      const newItem = { id: new Date().getTime().toString(), title: name , length: length };
+      const newItem = {
+        id: new Date().getTime().toString(),
+        title: title,
+        length: length,
+        category: category,
+      };
 
       setList([...list, newItem]);
-      setName("");
-      setLength("")
+      setTitle("");
+      setLength("");
     }
   };
 
@@ -57,13 +67,16 @@ const Tasks = () => {
     const specificItem = list.find((item) => item.id === id);
     setIsEditing(true);
     setEditID(id);
-    setName(specificItem.title);
+    setTitle(specificItem.title);
+    setLength(specificItem.length);
+    setCategory(specificItem.category);
+
   };
 
   const saveItem = (id) => {
     const specificItem = list.find((item) => item.id === id);
     // put into DB
-    alert('saaved')
+    alert("saaved");
   };
 
   useEffect(() => {
@@ -80,15 +93,23 @@ const Tasks = () => {
           <div className="form-control">
             <input
               className="taskLength"
-              placeholder="minutes"
+              placeholder="Minutes"
               value={length}
+              required
               onChange={(e) => setLength(e.target.value)}
-            /> 
+              
+            />
             <input
               className="task"
-              placeholder="Code x app"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
+              placeholder="Task description"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+            />
+            <input
+              className="category"
+              placeholder="Category"
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}
             />
             <button type="submit" className="submit-btn">
               {isEditing ? "edit" : "submit"}

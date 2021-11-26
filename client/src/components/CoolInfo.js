@@ -23,6 +23,7 @@ const CoolInfo = () => {
     setCity(user.city);
 
     console.log(city);
+    
     // var currentWeather = DataService.getWeather(city);
     
     // how to parse the body?********

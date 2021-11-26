@@ -1,16 +1,16 @@
 import React from "react";
 import { FaEdit, FaTrash, FaSave } from "react-icons/fa";
 
-const Tasklist = ({ items, removeItem, editItem, saveItem }) => {
+const Notelist = ({ items, removeItem, editItem, saveItem }) => {
   return (
-    <div className="task-list">
+    <div className="note-list">
       {items.map((item) => {
-        const { id, title, length, category } = item;
+        const { id, title, description, category } = item;
         return (
-          <article key={id} className="task-item">
-            <p className="length">{length} minutes</p>
+          <article key={id} className="note-item">
+            <p className="description">{description} </p>
             <p className="title">{title}</p>
-            <p className="length">{category}</p>
+            <p className="category">{category}</p>
             <div className="btn-container">
               <button
                 type="button"
@@ -41,4 +41,4 @@ const Tasklist = ({ items, removeItem, editItem, saveItem }) => {
   );
 };
 
-export default Tasklist;
+export default Notelist;

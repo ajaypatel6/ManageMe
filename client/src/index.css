@@ -290,6 +290,12 @@ button:hover {
   background-color: #eeeeee;
   display: flex;
 }
+/*  */
+.form-group{
+  margin-left: 3rem;
+  margin-right: 3rem;
+}
+/*  */
 .task {
   padding: 0.25rem;
   padding-left: 1.5rem;
@@ -303,6 +309,16 @@ button:hover {
   width: 100%;
   padding: 12px 20px;
   display: inline-block;
+  border: 2px solid #60dbfb;
+  box-sizing: border-box;
+}
+.category{
+  background: rgb(238, 238, 238);
+  border-color: transparent;
+  padding: 12px 20px;
+  text-align: center;
+  font-size: 1.2rem;
+  color: rgb(0, 0, 0);
   border: 2px solid #60dbfb;
   box-sizing: border-box;
 }

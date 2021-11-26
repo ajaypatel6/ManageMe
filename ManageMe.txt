@@ -72,3 +72,8 @@ fetch -> axois (already parsed object)
 how async works with axios
 https://www.youtube.com/results?search_query=axios+post+get+url
 
+***********
+
+Middleware , next, header, body
+?
+https://stackoverflow.com/questions/68126559/node-cannot-get-api-posts

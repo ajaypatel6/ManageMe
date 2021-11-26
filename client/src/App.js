@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 //-------------------------//-------------------------//-------------------------//-------------------------
 import AuthService from "./services/auth.service";
-// import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 //-------------------------//-------------------------//-------------------------//-------------------------
 
@@ -52,7 +52,7 @@ function App() {
   //remove sound logs 
   window.soundManager.setup({debugMode: false});
 
-
+  
   // modeerator and admin board state?
   useEffect(() => {
     // console.log("start of useEffect");
