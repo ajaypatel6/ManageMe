@@ -47,5 +47,6 @@ db.sequelize = sequelize;
 db.user = require("../models/userModel")(sequelize, Sequelize);
 db.meditation = require("../models/meditationModel")(sequelize, Sequelize);
 db.task = require("../models/taskModel")(sequelize, Sequelize);
+db.note = require("../models/noteModel")(sequelize, Sequelize);
 
 module.exports = db;

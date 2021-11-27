@@ -18,7 +18,13 @@ module.exports = function (app) {
   // app.get("/example", (req,res)=>{
   //   res.json(req.query);
   // });
-
+  app.post(
+    "/api/note/saveNote",
+    [
+      //verify legit? already done in client
+    ],
+    controller.saveNote
+  );
 
   app.get("/city", function (req, res, next) {
     // var city = req.params.city;
@@ -30,6 +36,8 @@ module.exports = function (app) {
   app.get("/account/:city", function (req, res) {
     res.send("Request on city " + req.params.city);
   });
+
+
 
   // how to get city of user.
 
